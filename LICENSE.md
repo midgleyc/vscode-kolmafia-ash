@@ -1,5 +1,3 @@
-Copyright 2018 Ben "535" Blank
-
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 

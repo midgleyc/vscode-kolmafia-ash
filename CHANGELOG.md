@@ -1,10 +1,9 @@
-## Change Log
+# Change Log
 
-All notable changes to the KoLmafia ASH extension will be documented in this file.
+All notable changes to the "kolmafia-ash-pp" extension will be documented in this file.
 
-### [1.0.1] - 2018-12-28
+Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-**Addded:**
+## [Unreleased]
 
-* language configuration
-* syntax highlighting
+- Initial release

@@ -1,43 +1,67 @@
 {
-    "name": "ash",
-    "publisher": "benblank",
-    "displayName": "KoLmafia ASH",
-    "description": "Language support for KoLmafia ASH scripts.",
-    "author": "Ben \"535\" Blank <ben.blank@gmail.com>",
-    "version": "1.0.1",
-    "icon": "images/swordbot.png",
-    "galleryBanner": {
-        "color": "#EEEEEE",
-        "theme": "light"
-    },
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/benblank/kolmafia-ash.git"
-    },
-    "homepage": "https://github.com/benblank/kolmafia-ash#readme",
-    "bugs": {
-        "url": "https://github.com/benblank/kolmafia-ash/issues"
-    },
-    "license": "BSD-2-Clause",
-    "engines": {
-        "vscode": "^1.30.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "keywords": ["ash", "kol", "kolmafia", "mafia"],
-    "contributes": {
-        "languages": [{
-            "id": "ash",
-            "aliases": ["KoLMafia ASH", "ash"],
-            "extensions": [".ash"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "ash",
-            "scopeName": "source.ash",
-            "path": "./syntaxes/ash.tmLanguage.json"
-        }]
-    }
+	"name": "vscode-kolmafia-ash",
+	"displayName": "vscode-kolmafia-ash",
+	"description": "KoLmafia ASH language extension that provides basic syntax highlighting and programmatic language features",
+	"version": "0.1.0",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"onLanguage:ash"
+	],
+	"keywords": [
+		"ash",
+		"kol",
+		"kolmafia",
+		"mafia"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "ash",
+				"aliases": [
+					"KoLMafia ASH",
+					"ash"
+				],
+				"extensions": [
+					".ash"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "ash",
+				"scopeName": "source.ash",
+				"path": "./syntaxes/ash.tmLanguage.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js",
+		"generate:parser": "antlr4ts -visitor -o src/ashparser src/ashparser/AshLexer.g4 src/ashparser/AshParser.g4"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.41.0",
+		"antlr4ts-cli": "^0.5.0-alpha.3",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"tslint": "^5.20.0",
+		"typescript": "^3.6.4",
+		"vscode-test": "^1.2.2"
+	},
+	"dependencies": {
+		"antlr4ts": "^0.5.0-alpha.3"
+	}
 }
