@@ -1,9 +1,12 @@
 # Change Log
 
-All notable changes to the "kolmafia-ash-pp" extension will be documented in this file.
+## [0.2.0] - 2020-01-11
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+- Disabled error listener for now since it launches from users are typing scripts
+- Added tooltip hover support for functions starting with letters up to 'f'
 
-## [Unreleased]
+## [0.1.0] - 2020-01-11
 
-- Initial release
+- Added symbol definition functionality
+- Added tooltip hover for ASH functions starting with the letters 'a', 'b', and 'c'
+- Added error listener for parser that displays warning when parsing fails

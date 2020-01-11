@@ -1,6 +1,6 @@
 {
 	"name": "vscode-kolmafia-ash",
-	"displayName": "vscode-kolmafia-ash",
+	"displayName": "KoLmafia ASH++",
 	"description": "KoLmafia ASH language extension that provides basic syntax highlighting and programmatic language features",
 	"version": "0.1.0",
 	"engines": {

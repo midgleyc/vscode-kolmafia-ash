@@ -1,4 +1,8 @@
-[https://github.com/benblank/kolmafia-ash](https://github.com/benblank/kolmafia-ash) is a language definition for
+# KoLmafia ASH++
+
+**WIP**
+
+[KoLmafia ASH](https://github.com/benblank/kolmafia-ash) is a language definition for
 the [KoLmafia ASH](https://wiki.kolmafia.us/index.php?title=Main_Page) language, a scripting language for the
 game [Kingdom of Loathing](https://www.kingdomofloathing.com/).
 
@@ -12,6 +16,6 @@ This fork enhances the language definition with additional features including
 
 ## Changelog
 
-See [here](CHANGELOG.md)
+See [CHANGELOG](CHANGELOG.md) for more information.
 
 
