@@ -4,7 +4,7 @@ import { AshParserListener } from "./AshParserListener";
 import { FunctionDeclarationContext } from "./AshParser";
 import { Interval } from 'antlr4ts/misc/Interval';
 
-export class FunctionNameListener implements AshParserListener {
+export class DefaultAshParserListener implements AshParserListener {
 
     symbolsRef: vscode.SymbolInformation[];
 

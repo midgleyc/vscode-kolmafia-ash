@@ -1,4 +1,5 @@
 import { ANTLRInputStream, CommonTokenStream } from 'antlr4ts';
+import { AshErrorListener } from './ashparser/AshErrorListener';
 import { AshLexer } from './ashparser/AshLexer';
 import { CompilationUnitContext, AshParser } from './ashparser/AshParser';
 export { CompilationUnitContext };
@@ -12,5 +13,6 @@ export function parse(source: string): CompilationUnitContext {
     const lexer = new AshLexer(chars);
     const tokens = new CommonTokenStream(lexer);
     const parser = new AshParser(tokens);
+    parser.addErrorListener(AshErrorListener.INSTANCE);
     return parser.compilationUnit();
 }
