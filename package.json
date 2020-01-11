@@ -7,6 +7,21 @@
 		"vscode": "^1.41.0"
 	},
 	"publisher": "danielyxie",
+	"icon": "images/swordbot.png",
+	"galleryBanner": {
+		"color": "#EEEEEE",
+		"theme": "light"
+	},
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/danielyxie/vscode-kolmafia-ash.git"
+	},
+	"homepage": "https://github.com/danielyxie/vscode-kolmafia-ash#readme",
+	"bugs": {
+		"url": "https://github.com/danielyxie/vscode-kolmafia-ash/issues"
+	},
+	"license": "BSD-2-Clause",
 	"categories": [
 		"Programming Languages"
 	],
