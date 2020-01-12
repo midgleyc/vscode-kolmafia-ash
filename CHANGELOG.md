@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.3.0] - 2020-01-12
+
+- Added tooltip hover support for all remaining ASH functions
+- Added autosuggest/autocomplete functionality for all ASH functions
+
 ## [0.2.0] - 2020-01-11
 
 - Disabled error listener for now since it launches from users are typing scripts
