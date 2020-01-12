@@ -967,6 +967,935 @@ addEntry({
 });
 
 addEntry({
+    name: "galaktik_cures_discounted",
+    signatures: [
+        "boolean galaktik_cures_discounted()"
+    ],
+    documentation:
+        "Returns true if the character has completed Doc Galatik's Quest for Herbs during this ascension. Otherwise return false.",
+});
+
+addEntry({
+    name: "gameday_to_int",
+    signatures: [
+        "int gameday_to_int()"
+    ],
+    documentation:
+        "Returns the current KoL game date using the in-game calendar as an integer from 0 to 95 where 'Jarlsuary 1' is 0 and " +
+        "'Dougtember 8' is 95.",
+});
+
+addEntry({
+    name: "gameday_to_string",
+    signatures: [
+        "string gameday_to_string()"
+    ],
+    documentation:
+        "Returns the current KoL game date, where rollover is the start of a new day, using the in-game calendar.",
+});
+
+addEntry({
+    name: "gametime_to_int",
+    signatures: [
+        "int gametime_to_int()"
+    ],
+    documentation:
+        "Returns the current KoL game time using milliseconds since rollover.",
+});
+
+addEntry({
+    name: "get_all_properties()",
+    signatures: [
+        "boolean [string] get_all_properties(string filter, boolean global)"
+    ],
+    documentation:
+        "Returns a map from name to boolean which is true if the property is supported by KoLmafia itself or false if it's for/by user scripts.",
+});
+
+addEntry({
+    name: "get_auto_attack",
+    signatures: [
+        "int get_auto_attack()"
+    ],
+    documentation:
+        "Returns your auto-attack as an integer code. Possible values are 0 for ddisabled, 1 for atack with weapon, a skill ID number, or a " +
+        "macro ID number preceded by 99.",
+});
+
+addEntry({
+    name: "get_campground",
+    signatures: [
+        "int [item] get_campground()"
+    ],
+    documentation:
+        "Returns a map of your campground items as integers, keyed by item names.",
+});
+
+addEntry({
+    name: "get_css_action",
+    signatures: [
+        "string get_css_action(int round)"
+    ],
+    documentation:
+        "This function will read a line from the active CCS for a given round and return that round's command as a string. " +
+        "This will only return a value from the section of the CSS for the monster that is currently being fought. It is only useful in " +
+        "consult scripts or combat filters.",
+});
+
+addEntry({
+    name: "get_chateau",
+    signatures: [
+        "int [item] get_chateau()"
+    ],
+    documentation:
+        "Returns a map of your chateau items as integers, keyed by item names.",
+});
+
+addEntry({
+    name: "get_clan_id",
+    signatures: [
+        "int get_clan_id()"
+    ],
+    documentation:
+        "Returns the clan ID of the character.",
+});
+
+addEntry({
+    name: "get_clan_lounge",
+    signatures: [
+        "int [item] get_clan_lounge()"
+    ],
+    documentation:
+        "Returns a map of your CLan VIP Lounge items as integers, keyed by item names. Also returns Speakeasy items that can " +
+        "be purchased, and the item and number of Floundry items that can be made. Does **not** report Hot Dogs.",
+});
+
+addEntry({
+    name: "get_clan_name",
+    signatures: [
+        "string get_clan_name()"
+    ],
+    documentation:
+        "Returns the character's clan name.",
+});
+
+addEntry({
+    name: "get_counters",
+    signatures: [
+        "string get_counters(string label, int minTurns, int maxTurns)"
+    ],
+    documentation:
+        "Determines if a counter will expire in the specified period of time. Returns an empty string if there are no matching " +
+        "counter, the counter name if there is only one match, or a tab-delimited list of names if there are multiple matches.",
+});
+
+addEntry({
+    name: "get_custom_outfits",
+    signatures: [
+        "string [int] get_custom_outfits()"
+    ],
+    documentation:
+        "Returns a list of all currently defined custom outfits. This list begins with '- No Change-', which is not really an outfit.",
+});
+
+addEntry({
+    name: "get_dwelling",
+    signatures: [
+        "item get_dwelling()"
+    ],
+    documentation:
+        "Returns the item corresponding with your current dwelling (the item used to get the dwelling). If you have no dwelling, " +
+        "this function will return *$item[big rock]*.",
+});
+
+addEntry({
+    name: "get_florist_plants",
+    signatures: [
+        "string [location] [int] get_florist_plants()"
+    ],
+    documentation:
+        "Returns a map of all plants currently planted at each location in The_Florist_Friar's_Cottage.",
+});
+
+addEntry({
+    name: "get_goals",
+    signatures: [
+        "string [int] get_goals()"
+    ],
+    documentation:
+        "Returns an integer-indexed map of all active adventuring goals that have not yet been met.",
+});
+
+addEntry({
+    name: "get_ignore_zone_warnings",
+    signatures: [
+        "boolean get_ignore_zone_warnings()"
+    ],
+    documentation:
+        "Returns the value of the KoL option to disable the 'This area might be too tough for you' warnings. If KoL ignores those " +
+        "that requirements warnings, then this returns true.",
+});
+
+addEntry({
+    name: "get_ingredients",
+    signatures: [
+        "int [item] get_ingredients(item parse_me)"
+    ],
+    documentation:
+        "Returns a map keyed by item names with the values equal to the quantity of each ingredient required to make *parse_me*. Note " +
+        "that for multi-stage crafting, only the last stage of requirements is listed.",
+});
+
+addEntry({
+    name: "get_inventory",
+    signatures: [
+        "int [item] get_inventory()"
+    ],
+    documentation:
+        "Returns a map where each key is an item in your inventory, an the integer value its quantity.",
+});
+
+addEntry({
+    name: "get_monsters",
+    signatures: [
+        "monster [int] get_monsters(location loc)"
+    ],
+    documentation:
+        "Returns a map of every monster in the given location *loc*. Be aware that this also includes monsters that result from choice " +
+        "adventures.",
+});
+
+addEntry({
+    name: "get_moods",
+    signatures: [
+        "string [int] get_moods()"
+    ],
+    documentation:
+        "Returns an integer indexed list of all currently defined mood names.",
+});
+
+addEntry({
+    name: "get_outfits",
+    signatures: [
+        "string [int] get_outfits()"
+    ],
+    documentation:
+        "Returns a list of all KoL outfits that the character currently owns and can wear. This list includes '- No Change -', " +
+        "'Birthday Suit', and 'Your Previous Outfit' even though they aren't exactly KoL outfits.",
+});
+
+addEntry({
+    name: "get_path",
+    signatures: [
+        "string get_path()"
+    ],
+    documentation:
+        "When called by a relay override script, this returns the page name of the URL that was submitted in the relay browser. This " +
+        "does not include any variables which might follow a question mark in the URL.",
+});
+
+addEntry({
+    name: "get_path_full",
+    signatures: [
+        "string get_path_full()"
+    ],
+    documentation:
+        "When called by a relay override script, this returns the full URL that was submitted in the relay browser.",
+});
+
+addEntry({
+    name: "get_path_variables",
+    signatures: [
+        "string get_path_variables()"
+    ],
+    documentation:
+        "When called by a relay override script, this returns the variables (if there are any after a '?') of the URL that was submitted " +
+        "in the relay browser. This return value does not include the name of the page.",
+});
+
+addEntry({
+    name: "get_player_id",
+    signatures: [
+        "string get_player_id(string player)"
+    ],
+    documentation:
+        "Returns the user id number of a given player.",
+});
+
+addEntry({
+    name: "get_power",
+    signatures: [
+        "int get_power(item it)"
+    ],
+    documentation:
+        "Returns the power of the given item *it* or 0 if the item doesn't have a power.",
+});
+
+addEntry({
+    name: "get_property",
+    signatures: [
+        "string get_property(string prop)",
+        "string get_property(string prop, boolean global)"
+    ],
+    documentation:
+        "Looks for a global or appropriate user preference from the saved files (found in your 'Settings' directory) and if it finds one " +
+        "that matches, it returns whatever value is stored for that preference. If no matching preference is found, an empty string " +
+        "is returned.",
+});
+
+addEntry({
+    name: "get_related",
+    signatures: [
+        "int [item] get_related(item doodad, string type)"
+    ],
+    documentation:
+        "Retrieves some variable-length internal data that isn't readily readable via *file_to_map()*. The *type* parameter is one of " +
+        "'zap', 'fold', or 'pulverize'.",
+});
+
+addEntry({
+    name: "get_revision",
+    signatures: [
+        "int get_revision()"
+    ],
+    documentation:
+        "Returns the revision number of KoLmafia being used. For daily builds, the revision number is identical to the build number.",
+});
+
+addEntry({
+    name: "get_shop",
+    signatures: [
+        "int [item] get_shop()"
+    ],
+    documentation:
+        "Returns a map where each key is an item in your Mall store, with the integer value how many you are currently selling.",
+});
+
+addEntry({
+    name: "get_storage",
+    signatures: [
+        "int [item] get_storage()"
+    ],
+    documentation:
+        "Returns a map where each key is an item in Hangk's, with the integer value its quantity.",
+});
+
+addEntry({
+    name: "get_version",
+    signatures: [
+        "string get_version()"
+    ],
+    documentation:
+        "Returns the latest version of KoLmafia pertaining to your current build.",
+});
+
+addEntry({
+    name: "gnomads_available",
+    signatures: [
+        "boolean gnomads_available()"
+    ],
+    documentation:
+        "Returns true if your character has access to the Gnomish Gnomad Camp.",
+});
+
+addEntry({
+    name: "goal_exists",
+    signatures: [
+        "boolean goal_exists(string type)"
+    ],
+    documentation:
+        "Returns true if there are any goals that match *type*. See wiki page for valid values for the *type* parameter.",
+});
+
+addEntry({
+    name: "group",
+    signatures: [
+        "string group(matcher pattern)",
+        "string group(matcher pattern, int group)"
+    ],
+    documentation:
+        "Returns the contents of an indicated capturing group or the entire pattern if not indicated. If the match was successful but " +
+        "the group specified failed to match any part of the input sequence, then the null string is returned. A group may match an empty " +
+        "string, so remember the null string is \"\u0000\".",
+});
+
+addEntry({
+    name: "group_count",
+    signatures: [
+        "int group_count(matcher pattern)"
+    ],
+    documentation:
+        "Returns the number of capturing groups in the pattern. Group zero denotes the entire pattern by convention, but it is not included " +
+        "in this count.",
+});
+
+addEntry({
+    name: "group_string",
+    signatures: [
+        "string [int, int] group_string(string group_me, string group_by)"
+    ],
+    documentation:
+        "Finds all (non-overlapping) matches of the regular expression *group_by* within the string *group_me*. A 2D array of " +
+        "matching strings is returned.",
+});
+
+addEntry({
+    name: "guild_store_available",
+    signatures: [
+        "boolean guild_store_available()"
+    ],
+    documentation:
+        "Returns true if your character has unlocked their guild store. Returns false otherwise.",
+});
+
+addEntry({
+    name: "have_bartender",
+    signatures: [
+        "boolean have_bartender()"
+    ],
+    documentation:
+        "Returns true if you have a bartender (regular or clockwork) installed at your campground, and false otherwise.",
+});
+
+addEntry({
+    name: "have_chef",
+    signatures: [
+        "boolean have_chef()"
+    ],
+    documentation:
+        "Returns true if you have a chef (regular or clockwork) installed at your caampground, and false otherwise.",
+});
+
+addEntry({
+    name: "have_display",
+    signatures: [
+        "boolean have_display()"
+    ],
+    documentation:
+        "Returns boolean indicating whether or not you've bought a display case.",
+});
+
+addEntry({
+    name: "have_effect",
+    signatures: [
+        "int have_effect(effect have_effect)"
+    ],
+    documentation:
+        "Returns the number of turns for which you currently have the effect *have_effect*. Returns 0 if you do not have any turns " +
+        "of it. If the effect is an intrinsic that you currently have, the function will return 2147483547.",
+});
+
+addEntry({
+    name: "have_equipped",
+    signatures: [
+        "boolean have_equipped(item check)"
+    ],
+    documentation:
+        "Returns true if you currently have the specified item *check* equipped, and false otherwise. For familiar equipment, it only " +
+        "checks the familiar you currently have with you. Always returns false if *check* is not an item that can be equipped.",
+});
+
+addEntry({
+    name: "have_familiar",
+    signatures: [
+        "boolean have_familiar(familiar check_me)"
+    ],
+    documentation:
+        "Returns true if you have the specified familiar, and false otherwise. This function does not detect hatchlings since those are " +
+        "items. It will also not detect transformations due to wardrobe or doppleshifting.",
+});
+
+addEntry({
+    name: "have_mushroom_plot",
+    signatures: [
+        "boolean have_mushroom_plot()"
+    ],
+    documentation:
+        "Returns true if you have purchased a mushroom plot in Degrassi Knoll during your current ascension, and false if you have not.",
+});
+
+addEntry({
+    name: "have_outfit",
+    signatures: [
+        "boolean have_outfit(string name)"
+    ],
+    documentation:
+        "Returns boolean indicating whether you have all parts of the outfit *name* and meet all of the stat requirements to equip it. " +
+        "*name* can be a default outfit or a custom outfit.",
+});
+
+addEntry({
+    name: "have_servant",
+    signatures: [
+        "boolean have_servant(servant check_me)"
+    ],
+    documentation:
+        "Returns true if you have the specified servant *check_me*, and false otherwise. Returns false if you are not in Ed the Undying.",
+});
+
+addEntry({
+    name: "have_shop",
+    signatures: [
+        "boolean have_shop()"
+    ],
+    documentation:
+        "Returns true if you have a mall store, and false otherwise.",
+});
+
+addEntry({
+    name: "have_skill",
+    signatures: [
+        "boolean have_skill(skill check)"
+    ],
+    documentation:
+        "Returns true if your character has the specified skill (permanent as applicable or bought in-run), and false otherwise.",
+});
+
+addEntry({
+    name: "hermit",
+    signatures: [
+        "boolean hermit(int qty, item get)"
+    ],
+    documentation:
+        "Attempts to acquire *qty* amount of item *get* from the hermit. Will buy and use chewing gum on a string as needed. Reports " +
+        "success based on whether it acquired as many of item *get* as possible. If *get* is not a hermit item, this function " +
+        "will return true.",
+});
+
+addEntry({
+    name: "hidden_temple_unlocked",
+    signatures: [
+        "boolean hidden_temple_unlocked()"
+    ],
+    documentation:
+        "Returns true if the character has successfully used the Spooky Map to discover the Hidden Temple, otherwise false.",
+});
+
+addEntry({
+    name: "hippy_stone_broken",
+    signatures: [
+        "boolean hippy_stone_broken()"
+    ],
+    documentation:
+        "Returns true if the Hippy Stone is currently broken, and false otherwise.",
+});
+
+addEntry({
+    name: "hippy_store_available",
+    signatures: [
+        "boolean hippy_store_available()"
+    ],
+    documentation:
+        "Returns true if the character has island access and has unlocked the hippy store. Otherwise it returns false.",
+});
+
+addEntry({
+    name: "historical_age",
+    signatures: [
+        "float historical_age(item shop_for)"
+    ],
+    documentation:
+        "Returns the age of the price that *historical_price()* will return. The return value is in days, so a returned value of " +
+        "1.25 means that the price is 1 day and 6 hours old.",
+});
+
+addEntry({
+    name: "historical_price",
+    signatures: [
+        "int historical_price(item shop_for)"
+    ],
+    documentation:
+        "Returns the most recently seen mall price of the given item, following the same restrictions as *mall_price()*."
+});
+
+addEntry({
+    name: "holiday",
+    signatures: [
+        "string holiday()"
+    ],
+    documentation:
+        "Returns a string representation of the in-game holiday. Returns an empty string if there is currently no holiday.",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
     name: "",
     signatures: [
 
