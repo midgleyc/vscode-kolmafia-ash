@@ -1,11 +1,16 @@
 import * as vscode from 'vscode';
 
+import { AshDocumentCompletionItemProvider } from './AshDocumentCompletionItemProvider';
 import { AshDocumentHoverProvider } from './AshDocumentHoverProvider';
 import { AshDocumentSymbolProvider } from './AshDocumentSymbolProvider';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+
+	vscode.languages.registerCompletionItemProvider(
+		{ language: 'ash' }, new AshDocumentCompletionItemProvider()
+	);
 
 	vscode.languages.registerHoverProvider(
 		{ language: 'ash' }, new AshDocumentHoverProvider()
