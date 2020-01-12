@@ -5,7 +5,7 @@ options {
 }
 
 compilationUnit:
-	(miscAshDeclarations | functionDeclaration)* EOF;
+	(miscAshDeclarations | functionDeclaration | fieldDeclaration)* EOF;
 
 miscAshDeclarations:
 	importDeclaration

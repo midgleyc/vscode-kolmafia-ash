@@ -1,15 +1,16 @@
 # KoLmafia ASH++
 
-**WIP**
-
-[KoLmafia ASH](https://github.com/benblank/kolmafia-ash) is a language definition for
-the [KoLmafia ASH](https://wiki.kolmafia.us/index.php?title=Main_Page) language, a scripting language for the
+Language definition for the [KoLmafia ASH](https://wiki.kolmafia.us/index.php?title=Main_Page) language, a scripting language for the
 game [Kingdom of Loathing](https://www.kingdomofloathing.com/).
 
-This fork enhances the language definition with additional features including
+Forked from [https://github.com/benblank/kolmafia-ash](https://github.com/benblank/kolmafia-ash).
 
+## Features
+
+* Syntax Highlighting
+* Hover tooltips for ASH functions
+* Autosuggest & completion for ASH functions
 * Symbol Definitions
-* ASH Function documentation on hover
 * More to come...maybe...
 
 ## Known Issues/Limitations
