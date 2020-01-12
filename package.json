@@ -62,6 +62,7 @@
 		"vscode:prepublish": "npm run compile",
 		"compile": "npm run generate-parser && webpack --mode production",
 		"watch": "tsc -watch -p ./",
+		"webpack-dev": "webpack --mode development --watch",
 		"pretest": "npm run compile",
 		"test": "node ./out/test/runTest.js"
 	},

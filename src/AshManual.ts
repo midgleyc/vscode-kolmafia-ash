@@ -2603,7 +2603,7 @@ addEntry({
         "item [int] outfit_pieces(string outfit)"
     ],
     documentation:
-        "Returns a map of the items which compose an outfit. This works for both KoL standard outfits and custom outfits. If *outfit* " +
+        "Returns an array of the items which compose an outfit. This works for both KoL standard outfits and custom outfits. If *outfit* " +
         "it invalid, then this wil return an empty aggregate.",
 });
 
@@ -3068,7 +3068,7 @@ addEntry({
         "string [int] split_string(string source, string delimiter)"
     ],
     documentation:
-        "Returns a map of your *source*, split by either *delimiter* or by line-breaks if not supplied.",
+        "Returns an array of your *source*, split by either *delimiter* or by line-breaks if not supplied.",
 });
 
 addEntry({
@@ -3217,7 +3217,641 @@ addEntry({
         "Provides information about a given project. See wiki page for more details.",
 });
 
-/*
+addEntry({
+    name: "take_closet",
+    signatures: [
+        "boolean take_closet(int qty)",
+        "boolean take_closet(int qty, item it)"
+    ],
+    documentation:
+        "Attempts to move *qty* of *it* from your closet to your main inventory. If called without *it*, it will attempt to move meat. " +
+        "Returns a boolean indicating whether the move was successful.",
+});
+
+addEntry({
+    name: "take_display",
+    signatures: [
+        "boolean take_display(int qty, item it)"
+    ],
+    documentation:
+        "Attempts to move *qty* of *it* from your display case to your main inventory. Returns a boolean indicating whether the " +
+        "move was successful.",
+});
+
+addEntry({
+    name: "take_shop",
+    signatures: [
+        "boolean take_shop(item it)",
+        "boolean take_shop(int qty, item it)"
+    ],
+    documentation:
+        "Removes *it* from your mall store. Returns a boolean indicating whether the operation was successful.",
+});
+
+addEntry({
+    name: "take_stash",
+    signatures: [
+        "boolean take_stash(int qty, item it)"
+    ],
+    documentation:
+        "Attempts to move *qty* of *it* from your clan stash to your main inventory. Returns a boolean indicating whether the move was successful.",
+});
+
+addEntry({
+    name: "take_storage",
+    signatures: [
+        "boolean take_storage(int qty, item it)"
+    ],
+    documentation:
+        "Attempts to move *qty* of *it* from Hangk's Storage to your main inventory. This can also retrieve an item that is a free pull. " +
+        "Returns a boolean indicating whether the move was successful.",
+});
+
+addEntry({
+    name: "tavern",
+    signatures: [
+        "int tavern()",
+        "int tavern(string target)"
+    ],
+    documentation:
+        "Attempts to complete the level 3 tavern quest, stopping when it has reached the optionally specified target. See wiki page " +
+        "for valid targets. Returns value is based on the target.",
+});
+
+addEntry({
+    name: "throw_item",
+    signatures: [
+        "buffer throw_item(item throw)"
+    ],
+    documentation:
+        "Attempts to use an item during a combat round, and returns the HTML response from said attempt.",
+});
+
+addEntry({
+    name: "throw_items",
+    signatures: [
+        "buffer throw_items(item first, item second)"
+    ],
+    documentation:
+        "Attempts to use two items in a combat round (using the skill Ambidextrous Funkslinging), and returns the HTML response from said " +
+        "attempt.",
+});
+
+addEntry({
+    name: "thunder_cost",
+    signatures: [
+        "int thunder_cost(skill thunder_skill)"
+    ],
+    documentation:
+        "Returns the dB cost for the given Thunder skill.",
+});
+
+addEntry({
+    name: "time_to_string",
+    signatures: [
+        "string time_to_string()"
+    ],
+    documentation:
+        "Returns the current local time (based on your computer's system settings) in HH:mm:ss z format.",
+});
+
+addEntry({
+    name: "to_boolean",
+    signatures: [
+        "boolean to_boolean(int convert)",
+        "boolean to_boolean(float convert)",
+        "boolean to_boolean(string convert)",
+    ],
+    documentation:
+        "Converts the supplied datatype *convert* to a boolean value. For strings, this means that it will return false for anything except " +
+        "the string \"true\". For the other datatypes, it returns *to_int(anything) != 0*. See wiki page for more details.",
+});
+
+addEntry({
+    name: "to_bounty",
+    signatures: [
+        "bounty to_bounty(string convert)"
+    ],
+    documentation:
+        "Returns the bounty that corresponds to the specified parameter *convert*. This is not a fuzzy match and it is not case-sensitive.",
+});
+
+addEntry({
+    name: "to_class",
+    signatures: [
+        "class to_class(int convert)",
+        "class to_class(string name)"
+    ],
+    documentation:
+        "Attempts to convert the parameter to a class type and returns the result.",
+});
+
+addEntry({
+    name: "to_coinmaster",
+    signatures: [
+        "coinmaster to_coinmaster(string store)"
+    ],
+    documentation:
+        "Attempts to convert the parameter *store* to a coinmaster type and returns the result.",
+});
+
+addEntry({
+    name: "to_effect",
+    signatures: [
+        "effect to_effect(int convert)",
+        "effect to_effect(string convert)",
+        "effect to_effect(skill convert)",
+    ],
+    documentation:
+        "When supplied an int or string, returns the effect that corresponds to the specified parameter *convert*. When supplied a skill, " +
+        "returns the effect that is given when the skill *convert* is cast on a player.",
+});
+
+addEntry({
+    name: "to_element",
+    signatures: [
+        "element to_element(string name)"
+    ],
+    documentation:
+        "Attempts to convert the specified *name* to an element type and returns the result.",
+});
+
+addEntry({
+    name: "to_familiar",
+    signatures: [
+        "familiar to_familiar(int convert)",
+        "familiar to_familiar(string convert)"
+    ],
+    documentation:
+        "Attempts the convert the parameter to a familiar type and returns the result.",
+});
+
+addEntry({
+    name: "to_float",
+    signatures: [
+        "float to_float(boolean convert)",
+        "float to_float(int convert)",
+        "float to_float(string convert)",
+    ],
+    documentation:
+        "Looks for the best float match to the specified input, and returns that match. See wiki page for more details.",
+});
+
+addEntry({
+    name: "to_int",
+    signatures: [
+        "int to_int(boolean convert)",
+        "int to_int(float convert)",
+        "int to_int(string convert)",
+        "int to_int(item convert)",
+        "int to_int(class convert)",
+    ],
+    documentation:
+        "Looks for the best integer match to the specified input, and returns that match. See wiki page for more details.",
+});
+
+addEntry({
+    name: "to_item",
+    signatures: [
+        "item to_item(string name)",
+        "item to_item(int id)",
+        "item to_item(string name, int qty)",
+    ],
+    documentation:
+        "Returns the item that matches *name* or *id* as specified. Plural names will not match unless the third form is used and " +
+        "*qty* is not equal to 1.",
+});
+
+addEntry({
+    name: "to_json",
+    signatures: [
+        "string to_json(aggregate input)"
+    ],
+    documentation:
+        "Converts a simple map into a JSON string.",
+});
+
+addEntry({
+    name: "to_location",
+    signatures: [
+        "location to_location(int convert)",
+        "location to_location(string convert)",
+    ],
+    documentation:
+        "Attempts to convert the given parameter into a location type and returns the result.",
+});
+
+addEntry({
+    name: "to_lower_case",
+    signatures: [
+        "string to_lower_case(string text)"
+    ],
+    documentation:
+        "Returns *text* with all alphabetic characters (A-Z) converted to lower-case.",
+});
+
+addEntry({
+    name: "to_monster",
+    signatures: [
+        "monster to_monster(string name)",
+        "monster to_monster(int id)"
+    ],
+    documentation:
+        "Attempts to convert the given parameter into a monster type and returns the result.",
+});
+
+addEntry({
+    name: "to_phylum",
+    signatures: [
+        "phylum to_phylum(string name)"
+    ],
+    documentation:
+        "Converts the specific string *name* to a phylum type and returns the result.",
+});
+
+addEntry({
+    name: "to_plural",
+    signatures: [
+        "string to_plural(item it)"
+    ],
+    documentation:
+        "Returns the plural of an item in the form of a string.",
+});
+
+addEntry({
+    name: "to_servant",
+    signatures: [
+        "servant to_servant(int id)",
+        "servant to_servant(string name)"
+    ],
+    documentation:
+        "idk lol. Attempts to convert the given parameter to a phylum type and returns the result, probably.",
+});
+
+addEntry({
+    name: "to_skill",
+    signatures: [
+        "skill to_skill(int convert)",
+        "skill to_skill(string convert)",
+        "skill to_skill(effect convert)",
+    ],
+    documentation:
+        "When supplied an int or string, returns the skill that corresponds to the specific parameter *convert*. When supplied an effect, " +
+        "this returns the skill that, when cast on the player, gives them the effect *convert*.",
+});
+
+addEntry({
+    name: "to_slot",
+    signatures: [
+        "slot to_slot(item equip)",
+        "slot to_slot(string slot)"
+    ],
+    documentation:
+        "When given an item, returns the slot(s) to which that item would be equipped. When given a string, attempts to convert " +
+        "the string to a slot type and returns the result.",
+});
+
+addEntry({
+    name: "to_stat",
+    signatures: [
+        "stat to_stat(string convert)"
+    ],
+    documentation:
+        "Attempts to convert the given argument into a stat type and returns the result.",
+});
+
+addEntry({
+    name: "to_string",
+    signatures: [
+        "string to_string(any anything)",
+        "string to_string(num number, string format)"
+    ],
+    documentation:
+        "Returns any datatype as its string equivalent. For numeric types (int and float), you can optionally specify a formatting string.",
+});
+
+addEntry({
+    name: "to_thrall",
+    signatures: [
+        "thrall to_thrall(int convert)",
+        "thrall to_thrall(string convert)"
+    ],
+    documentation:
+        "Attempts to convert the given parameter into a thrall type, and returns the result.",
+});
+
+addEntry({
+    name: "to_upper_case",
+    signatures: [
+        "string to_upper_case(string text)"
+    ],
+    documentation:
+        "Returns *text* with all alphabetic characters (a-z) converted to upper-case.",
+});
+
+addEntry({
+    name: "to_url",
+    signatures: [
+        "string to_url(location place)"
+    ],
+    documentation:
+        "Returne the short url (normally of the form 'adventure.php?snarfblat=' used to visit the location *place*.",
+});
+
+addEntry({
+    name: "today_to_string",
+    signatures: [
+        "string today_to_string()"
+    ],
+    documentation:
+        "Returns the current real-world date corresponding to the KoL game date, where rollover is the start of a new day. Returned string " +
+        "is in an ISO basic format (YYYYMMDD).",
+});
+
+addEntry({
+    name: "total_free_rests",
+    signatures: [
+        "int total_free_rests()"
+    ],
+    documentation:
+        "Returns the total number of free rests available to your character. Does **not** account for free rests that you have used " +
+        "(i.e. it does **not** return the remaining number of free rests).",
+});
+
+addEntry({
+    name: "total_turns_played",
+    signatures: [
+        "int total_turns_played()"
+    ],
+    documentation:
+        "Returns the total number of adventures used by your character since it was created.",
+});
+
+addEntry({
+    name: "truncate",
+    signatures: [
+        "int truncate(float number)"
+    ],
+    documentation:
+        "Mathematical truncate function. Returns the truncated integer version of *number* (that is to say everything after the " +
+        "decimal point is stripped away and ignored completely).",
+});
+
+addEntry({
+    name: "turns_per_cast",
+    signatures: [
+        "int turns_per_cast(skill check_me)"
+    ],
+    documentation:
+        "Returns the number of turns of its corresponding effect you would get when casting *check_me* a single time.",
+});
+
+addEntry({
+    name: "turns_played",
+    signatures: [
+        "int turns_played()"
+    ],
+    documentation:
+        "Returns the total number of adventures used so far by your character during your current ascension.",
+});
+
+addEntry({
+    name: "url_decode",
+    signatures: [
+        "string url_decode(string source)"
+    ],
+    documentation:
+        "Returns the 'normal' version of the supplied *source* string with all URI-encoded escape sequences replaced with " +
+        "non-alphanumeric characters.",
+});
+
+addEntry({
+    name: "url_encode",
+    signatures: [
+        "string url_encode(string source)"
+    ],
+    documentation:
+        "Returns the encoded version of the supplied *source* string with all non-alphanumeric characters replaced with the standard " +
+        "URI-encoded escape sequences.",
+});
+
+addEntry({
+    name: "use",
+    signatures: [
+        "boolean use(int qty, item it)"
+    ],
+    documentation:
+        "Attempts to use *qty* amount of item *it*. REturns true if the item is used or false if it fails to do so. This function " +
+        "should **not** be used for eating, drinking, or chewing spleen items. (See *eat()*, *drink()*, and *chew()* instead).",
+});
+
+addEntry({
+    name: "use_familiar",
+    signatures: [
+        "boolean use_familiar(familiar buddy)"
+    ],
+    documentation:
+        "Switches your current familiar for the specified one. Returns true if the specified familiar *buddy* is your current familiar " +
+        "after the function's completion (i.e. returns true if successful), and false otherwise.",
+});
+
+addEntry({
+    name: "use_servant",
+    signatures: [
+        "boolean use_servant(servant buddy)"
+    ],
+    documentation:
+        "idk lol. Probably: In the Actually Ed the Undying challenge path, switches your current servant for the specified one. " +
+        "Returns true if the specified servant *buddy* is your current servant " +
+        "after the function's completion (i.e. returns true if successful), and false otherwise.",
+});
+
+addEntry({
+    name: "use_skill",
+    signatures: [
+        "boolean use_skill(int casts, skill to_use)",
+        "boolean use_skill(int casts, skill to_use, string target)"
+    ],
+    documentation:
+        "Attempts to cast the skill *to_use* a number of times specified by *casts*, or once if not specified. Can optionally " +
+        "specify a cast target, otherwise it defaults to your own character.",
+});
+
+addEntry({
+    name: "user_confirm",
+    signatures: [
+        "boolean user_confirm(string message)",
+        "boolean user_confirm(string message, int timeOutMillis, boolean defaultValue)"
+    ],
+    documentation:
+        "Presents user with a pop-up dialog box with the text in *message* and two buttons: 'Yes' and 'No'. Returns true if the user " +
+        "selects 'Yes' and false if the user selects 'No'. You can optionally supply a time out and a default return value.",
+});
+
+addEntry({
+    name: "visit",
+    signatures: [
+        "boolean visit(coinmaster master)"
+    ],
+    documentation:
+        "Visits a coinmaster to see what is currently for sale there. This is useful for coinmasters whose inventory maay change, such as " +
+        "the Hermit, Mr. Store, and the Traveling Trader. Returns true if the visit was successful and false otherwise.",
+});
+
+addEntry({
+    name: "visit_url",
+    signatures: [
+        "buffer visit_url()",
+        "buffer visit_url(string page)",
+        "buffer visit_url(string page, boolean use_POST)",
+        "buffer visit_url(string page, boolean use_POST, boolean encoded)",
+    ],
+    documentation:
+        "Returns the HTML from the visited page by performing a POST request if *use_POST* is omitted or true, or a GET request if false. " +
+        "See wiki page for more details.",
+});
+
+addEntry({
+    name: "wait",
+    signatures: [
+        "void wait(int secs)"
+    ],
+    documentation:
+        "Pauses script execution for *secs* seconds. Minimum wait is 1 second, even if *secs* is 0.",
+});
+
+addEntry({
+    name: "waitq",
+    signatures: [
+        "void waitq(int secs)"
+    ],
+    documentation:
+        "Pauses script execution for *secs* seconds. This differs from *wait()* because it does not print a countdown to KoLmafia's " +
+        "graphical CLI. Minimum wait is 1 second, even if *secs* is 0.",
+});
+
+addEntry({
+    name: "weapon_hands",
+    signatures: [
+        "int weapon_hands(item check_me)"
+    ],
+    documentation:
+        "Returns the number of hands required to wield a weapon. Everything else, including off-hand items, returns 0.",
+});
+
+addEntry({
+    name: "weapon_type",
+    signatures: [
+        "stat weapon_type(item check_me)"
+    ],
+    documentation:
+        "Returns the equip requirement stat for *check_me*, even if the weapon does not have any stat requirements. If " +
+        "*check_me* is not a weapon, this function returns *$stat[none]*.",
+});
+
+addEntry({
+    name: "weight_adjustment",
+    signatures: [
+        "int weight_adjustment()"
+    ],
+    documentation:
+        "Returns the cumulative total of all familiar weight adjustments from equipment, effects, skills, and area modifiers.",
+});
+
+addEntry({
+    name: "white_citadel_available",
+    signatures: [
+        "boolean white_citadel_available()"
+    ],
+    documentation:
+        "Returns a boolean indicating whether your character has completed the White Citadel Quest and unlocked The White Citadel.",
+});
+
+addEntry({
+    name: "who_clan",
+    signatures: [
+        "boolean [string] who_clan()"
+    ],
+    documentation:
+        "Returns a map of the names of all players in clan chat. The boolean values are true if the character is in clan chat or false " +
+        "if just listening.",
+});
+
+addEntry({
+    name: "will_usually_dodge",
+    signatures: [
+        "boolean will_usually_dodge()"
+    ],
+    documentation:
+        "Returns true if your character would dodge an attack from your opponent more than half the time, and false otherwise. This " +
+        "uses the current monster being fought if in a consult script, otherwise it uses the last monster encountered."
+});
+
+addEntry({
+    name: "will_usually_miss",
+    signatures: [
+        "boolean will_usually_miss()"
+    ],
+    documentation:
+        "Returns true if your character would connect (hit your opponent) less than half the time when attacking with your weapon, and " +
+        "false otherwise. This uses the current monster being fought if in a consult script, otherwise it uses the last monster encountered."
+});
+
+addEntry({
+    name: "write",
+    signatures: [
+        "void write(string text)"
+    ],
+    documentation:
+        "Prints the specified *text* to the source of the page to be displayed by a relay browser script.",
+});
+
+addEntry({
+    name: "writeIn",
+    signatures: [
+        "void writeIn(string text)"
+    ],
+    documentation:
+        "Prints the specified *text* to the source of the page to be displayed by a relay browser script, ending with a line break " +
+        "(in the source, not necessarily in how the text is displayed).",
+});
+addEntry({
+    name: "xpath",
+    signatures: [
+        "string[int] xpath(string htmldocument, string xpathselector)"
+    ],
+    documentation:
+        "Returns an array of strings (not a map for efficiency purposes) representing the node(s) which xpath has selected for you in the " +
+        "html document. See wiki page for more details.",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
 addEntry({
     name: "",
     signatures: [
@@ -3253,4 +3887,399 @@ addEntry({
     documentation:
         "",
 });
-*/
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
+
+addEntry({
+    name: "",
+    signatures: [
+
+    ],
+    documentation:
+        "",
+});
