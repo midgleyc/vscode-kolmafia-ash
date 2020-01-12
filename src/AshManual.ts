@@ -199,7 +199,7 @@ addEntry({
         "boolean black_market_available()"
     ],
     documentation:
-        "Returns boolean indicating if the character has unlocked the Black Market.",
+        "Returns a boolean indicating if the character has unlocked the Black Market.",
 });
 
 addEntry({
@@ -287,7 +287,7 @@ addEntry({
         "boolean can_equip(item check_me)"
     ],
     documentation:
-        "Returns boolean indicating whether your stats are high enough to equip the given item. Note that this function doesn't check " +
+        "Returns a boolean indicating whether your stats are high enough to equip the given item. Note that this function doesn't check " +
         "for whether or not you actually have the item, just whether you're capable of holding it.",
 });
 
@@ -315,7 +315,7 @@ addEntry({
         "boolean canadia_available()"
     ],
     documentation:
-        "Returns boolean indicating whether the character has access to Little Canadia",
+        "Returns a boolean indicating whether the character has access to Little Canadia",
 });
 
 addEntry({
@@ -419,7 +419,7 @@ addEntry({
     ],
     documentation:
         "Passes the parameter *command* on to KoLmafia's CLI, which will execute it as if it were typed in through the normal interface. " +
-        "Returns boolean indicating whether or not the CLI command was executed properly.",
+        "Returns a boolean indicating whether or not the CLI command was executed properly.",
 });
 
 addEntry({
@@ -617,7 +617,7 @@ addEntry({
         "boolean dispensary_available()"
     ],
     documentation:
-        "Returns boolean indicating whether the plaayer has learned the password to the Knob Dispensary and possesses the Cobb's Knob lab key.",
+        "Returns a boolean indicating whether the plaayer has learned the password to the Knob Dispensary and possesses the Cobb's Knob lab key.",
 });
 
 addEntry({
@@ -715,7 +715,7 @@ addEntry({
         "boolean enthrone_familiar(familiar target)"
     ],
     documentation:
-        "Enthrones the specified familiar. Returns boolean indicating whether the operation was successful.",
+        "Enthrones the specified familiar. Returns a boolean indicating whether the operation was successful.",
 });
 
 addEntry({
@@ -744,7 +744,7 @@ addEntry({
         "boolean equip(slot where, item equip)"
     ],
     documentation:
-        "Attempts to equip the item *equip_me* in the slot *where* if specified. Returns boolean indicating whether or not the " +
+        "Attempts to equip the item *equip_me* in the slot *where* if specified. Returns a boolean indicating whether or not the " +
         "operation was successful.",
 });
 
@@ -918,7 +918,7 @@ addEntry({
         "boolean florist_available()"
     ],
     documentation:
-        "Returns boolean indicating the availability of The Florist Friar's Cottage.",
+        "Returns a boolean indicating the availability of The Florist Friar's Cottage.",
 });
 
 addEntry({
@@ -954,7 +954,7 @@ addEntry({
         "boolean friars_available()"
     ],
     documentation:
-        "Returns boolean indicating whether your character has completed the Deep Fat Friars quest.",
+        "Returns a boolean indicating whether your character has completed the Deep Fat Friars quest.",
 });
 
 addEntry({
@@ -1372,7 +1372,7 @@ addEntry({
         "boolean have_display()"
     ],
     documentation:
-        "Returns boolean indicating whether or not you've bought a display case.",
+        "Returns a boolean indicating whether or not you've bought a display case.",
 });
 
 addEntry({
@@ -1420,7 +1420,7 @@ addEntry({
         "boolean have_outfit(string name)"
     ],
     documentation:
-        "Returns boolean indicating whether you have all parts of the outfit *name* and meet all of the stat requirements to equip it. " +
+        "Returns a boolean indicating whether you have all parts of the outfit *name* and meet all of the stat requirements to equip it. " +
         "*name* can be a default outfit or a custom outfit.",
 });
 
@@ -1518,14 +1518,1706 @@ addEntry({
 });
 
 addEntry({
-    name: "",
+    name: "image_to_monster",
     signatures: [
-
+        "monster image_to_monster(string image)"
     ],
     documentation:
-        "",
+        "Returns the monster whose image name is *image*. If you go the other way and look up the image from the name of the monster " +
+        "you can use the *monster.image* proxy field.",
 });
 
+addEntry({
+    name: "in_bad_moon",
+    signatures: [
+        "boolean in_bad_moon()"
+    ],
+    documentation:
+        "Returns true if you are under the Bad Moon sign, and false otherwise.",
+});
+
+addEntry({
+    name: "in_hardcore",
+    signatures: [
+        "boolean in_hardcore()"
+    ],
+    documentation:
+        "Returns true if the character is currently subject to Hardcore restrictions, and false otherwise.",
+});
+
+addEntry({
+    name: "in_moxie_sign",
+    signatures: [
+        "boolean in_moxie_sign()"
+    ],
+    documentation:
+        "Returns true if your moon sign gives a bonus to moxie stat gains, and false otherwise.",
+});
+
+addEntry({
+    name: "in_muscle_sign",
+    signatures: [
+        "boolean in_muscle_sign()"
+    ],
+    documentation:
+        "Returns true if your moon sign gives a bonus to muscle stat gains, and false otherwise.",
+});
+addEntry({
+
+    name: "in_mysticality_sign",
+    signatures: [
+        "boolean in_mysticality_sign()"
+    ],
+    documentation:
+        "Returns true if your moon sign gives a bonus to mysticality stat gains, and false otherwise.",
+});
+
+addEntry({
+    name: "inaccessible_reason",
+    signatures: [
+        "string inaccessible_reason(coinmaster master)"
+    ],
+    documentation:
+        "Returns a string explaining why *master* is currently unavailable. If *master* is available, then it returns an empty string.",
+});
+
+addEntry({
+    name: "index_of",
+    signatures: [
+        "int index_of(string search, string find)",
+        "int index_of(string search, string find, int start)"
+    ],
+    documentation:
+        "Searches through the string *search*, looking for the string *find*. Returns the index where *find* first occurs in *search*, or " +
+        "-1 if *find* was not found.",
+});
+
+addEntry({
+    name: "inebriety_limit",
+    signatures: [
+        "int inebriety_limit()"
+    ],
+    documentation:
+        "Returns the maximum safe drunkenness of a character before becoming falling-down drunk.",
+});
+
+addEntry({
+    name: "initiative_modifier",
+    signatures: [
+        "float initiative_modifier()"
+    ],
+    documentation:
+        "Returns your current percentage initiative modifier in the form of a float.",
+});
+
+addEntry({
+    name: "insert",
+    signatures: [
+        "buffer insert(buffer original, int strStart, string stuff)"
+    ],
+    documentation:
+        "Returns the buffer *original* with the string *stuff* inserted at index *strStart*.",
+});
+
+addEntry({
+    name: "is_accessible",
+    signatures: [
+        "boolean is_accessible(coinmaster master)"
+    ],
+    documentation:
+        "Returns a boolean indicating whether *master* is currently available.",
+});
+
+addEntry({
+    name: "is_banished",
+    signatures: [
+        "boolean is_banished(monster mob)"
+    ],
+    documentation:
+        "Returns true if the specific monster is currently banished, and false otherwise.",
+});
+
+addEntry({
+    name: "is_coinmaster_item",
+    signatures: [
+        "boolean is_coinmaster_item(item it)"
+    ],
+    documentation:
+        "Returns true if item *it* can be purchased from a coinmaster. You'll need to discover which coinmaster by checking the seller " +
+        "proxy record.",
+});
+
+addEntry({
+    name: "is_discardable",
+    signatures: [
+        "boolean is_discardable(item check_me)"
+    ],
+    documentation:
+        "Returns a boolean indicating whether the specified item can be discarded. It will return true if the item can be autosold.",
+});
+
+addEntry({
+    name: "is_displayable",
+    signatures: [
+        "boolean is_displayable(item check_me)"
+    ],
+    documentation:
+        "Returns a boolean indicating whether the specified item can be put in a display case.",
+});
+
+addEntry({
+    name: "is_familiar_equipment_locked",
+    signatures: [
+        "boolean is_familiar_equipment_locked()"
+    ],
+    documentation:
+        "Returns true if familiar equipment is locked, and false otherwise.",
+});
+
+addEntry({
+    name: "is_giftable",
+    signatures: [
+        "boolean is_giftable(item check_me)"
+    ],
+    documentation:
+        "Returns a boolean indicating whether the item *check_me* can be sent as a gift. Note that this will return true for all items that are " +
+        "not untraedable, not merely gift items. If you want to specifically know if an item is a gift item, then check the *gift.item* proxy record.",
+});
+
+addEntry({
+    name: "is_integer",
+    signatures: [
+        "boolean is_integer(string check)"
+    ],
+    documentation:
+        "Returns true if the given string consists of only digits and comma-separators, with a negative sign allowed as the first character.",
+});
+
+addEntry({
+    name: "is_npc_item",
+    signatures: [
+        "boolean is_npc_item(item check)"
+    ],
+    documentation:
+        "Returns a boolean indicating whether the given item can be bought from an NPC store.",
+});
+
+addEntry({
+    name: "is_online",
+    signatures: [
+        "boolean is_online(string player)",
+        "boolean is_online(int player_id)"
+    ],
+    documentation:
+        "Returns a boolean indicating whether the specified player is online.",
+});
+
+addEntry({
+    name: "is_tradeable",
+    signatures: [
+        "boolean is_tradeable(item check_me)"
+    ],
+    documentation:
+        "Returns a boolean indicating whether the specified item can be traded via the Mall.",
+});
+
+addEntry({
+    name: "is_trendy",
+    signatures: [
+        "boolean is_trendy(item thing)",
+        "boolean is_trendy(familiar thing)",
+        "boolean is_trendy(skill thing)",
+        "boolean is_trendy(string thing)"
+    ],
+    documentation:
+        "Checks to see if the *thing* is currently trendy (for use in the Trendy challenge path).",
+});
+
+addEntry({
+    name: "is_unrestricted",
+    signatures: [
+        "boolean is_unrestricted(item check)",
+        "boolean is_unrestricted(familiar check)",
+        "boolean is_unrestricted(skill check)",
+        "boolean is_unrestricted(string check)"
+    ],
+    documentation:
+        "Returns a boolean indicating whether *check* is available for use, given current restrictions.",
+});
+
+addEntry({
+    name: "is_wearing_outfit",
+    signatures: [
+        "boolean is_wearing_outfit(string name)"
+    ],
+    documentation:
+        "Returns true if you are currently wearing all parts of the outfit *name*, and false otherwise.",
+});
+
+addEntry({
+    name: "item_amount",
+    signatures: [
+        "int item_amount(item it)"
+    ],
+    documentation:
+        "Returns the amount oa n item you currently have in your inventory. Does **not** include equipped items, items in your Colossal " +
+        "Closet, or Hangk's Storage.",
+});
+
+addEntry({
+    name: "item_drop_modifier",
+    signatures: [
+        "float item_drop_modifier()"
+    ],
+    documentation:
+        "Returns the peprcentage modification on item drops as a result of your equipment, effects, familiar, and area modifiers.",
+});
+
+addEntry({
+    name: "item_drops",
+    signatures: [
+        "int [item] item_drops()",
+        "int [item] item_drops(monster m)"
+    ],
+    documentation:
+        "Returns a map of the monster's drop rates, indexed by item names.",
+});
+
+addEntry({
+    name: "item_drops_array",
+    signatures: [
+        "record [int] item_drops_array()",
+        "record [int] item_drops_array(monster check_me)"
+    ],
+    documentation:
+        "Returns an array of records that contain information about item drops. See wiki page for more details.",
+});
+
+addEntry({
+    name: "item_type",
+    signatures: [
+        "string item_type(item check_me)"
+    ],
+    documentation:
+        "Returns the type of item that *check_me* is categorized as by KoLmafia. Possible values are all equipment types or other types " +
+        "that KoLmafia has a programmed action that the item is associated with. See wiki page for more details.",
+});
+
+addEntry({
+    name: "jump_chance",
+    signatures: [
+        "int [item] jump_chance()",
+        "int [item] jump_chance(monster m)",
+        "int [item] jump_chance(monster m, int i)",
+        "int [item] jump_chance(monster m, int i, int ml)",
+        "int [item] jump_chance(location l)"
+    ],
+    documentation:
+        "Returns the chance of successfully getting the jump against the monster or in the location, optionally at a particular " +
+        "initiative value and monster level.",
+});
+
+addEntry({
+    name: "knoll_available",
+    signatures: [
+        "boolean knoll_available()"
+    ],
+    documentation:
+        "Returns boolean indicating whether the character has access to the inside of Degrassi Knoll.",
+});
+
+addEntry({
+    name: "last_choice",
+    signatures: [
+        "int last_choice()"
+    ],
+    documentation:
+        "idk lol. Returns int indicating last choice you made in a choice adventure maybe?",
+});
+
+addEntry({
+    name: "last_index_of",
+    signatures: [
+        "int last_index_of(string search, string find)",
+        "int last_index_of(string search, string find, int end)"
+    ],
+    documentation:
+        "Searches through the string *search*, looking for the string *find*. Returns the index position where *find* last occurs in " +
+        "*search*.",
+});
+
+addEntry({
+    name: "last_item_message",
+    signatures: [
+        "string last_item_message()"
+    ],
+    documentation:
+        "Returns the message that KoL reported in the event of error when trying to use an item. If the last item use was successful, " +
+        "then this will return an empty string.",
+});
+
+addEntry({
+    name: "last_monster",
+    signatures: [
+        "monster last_monster()"
+    ],
+    documentation:
+        "Returns the last monster encountered.",
+});
+
+addEntry({
+    name: "last_skill_message",
+    signatures: [
+        "string last_skill_message()"
+    ],
+    documentation:
+        "Returns the message that KoL reported in the event of error when trying to use a skill. If the last skill use was successful, then " +
+        "this will return an empty string.",
+});
+
+addEntry({
+    name: "length",
+    signatures: [
+        "int length(string count_me)"
+    ],
+    documentation:
+        "Returns the number of characters in a string."
+});
+
+addEntry({
+    name: "lightning_cost",
+    signatures: [
+        "int lightning_cost(skill lightning_skill)"
+    ],
+    documentation:
+        "Returns the dB cost for the given Lightning skill.",
+});
+
+addEntry({
+    name: "limit_mode",
+    signatures: [
+        "string limit_mode()"
+    ],
+    documentation:
+        "Returns your curent limit mode, for example 'spellunk' or 'batman'. If you are not limited by a minigame, this returns " +
+        "an empty string.",
+});
+
+addEntry({
+    name: "load_html",
+    signatures: [
+        "buffer load_html(string page)"
+    ],
+    documentation:
+        "Returns the HTML from the visited page by performing a POST request. See wiki page for more details.",
+});
+
+addEntry({
+    name: "lock_familiar_equipment",
+    signatures: [
+        "void lock_familiar_equipment(boolean locking)"
+    ],
+    documentation:
+        "Locks the familiar equipment is *locking* is true or unlocks it if *locking* if false.",
+});
+
+addEntry({
+    name: "logprint",
+    signatures: [
+        "void logprint(string log)"
+    ],
+    documentation:
+        "Adds the specified text *log* to your session log (prefixed with '> '). Useful for notes that you don't want cluttering " +
+        "up the CLI or data to be parsed from your session log at a later time.",
+});
+
+addEntry({
+    name: "make_url",
+    signatures: [
+        "buffer make_url(string page, boolean use_POST, boolean encoded)"
+    ],
+    documentation:
+        "Returns the url that would be visited if this was a *visit_url()*. This function was intended for troubleshooting " +
+        "crafted urls and has no use outside of debugging purposes.",
+});
+
+addEntry({
+    name: "mall_price",
+    signatures: [
+        "int mall_price(item shop_for)"
+    ],
+    documentation:
+        "Returns the current mall price of the given item, ignoring the first five items listed to compensate for stores with limits " +
+        "and min-priced sales. See wiki page for more details.",
+});
+
+addEntry({
+    name: "mana_cost_modifier",
+    signatures: [
+        "int mana_cost_modifier()"
+    ],
+    documentation:
+        "Returns the total amount of passive MP cost reduction available.",
+});
+
+addEntry({
+    name: "map_to_file",
+    signatures: [
+        "boolean map_to_file(aggregate map_to_save, string file_to_save)",
+        "boolean map_to_file(aggregate map_to_save, string file_to_save, boolean compact)"
+    ],
+    documentation:
+        "Saves the data in *map_to_save* to the *file_to_save* in your KoLmafia 'data' directory. See wiki page for more details.",
+});
+
+addEntry({
+    name: "max",
+    signatures: [
+        "int max(int a, int b)",
+        "float max(float a, float b)"
+    ],
+    documentation:
+        "Mathematical maximum function. Returns the higher of the two parameters. Note that it is possible to mix an int and float type in the " +
+        "parameters, in which case the int parameter will be transparently converted to a float, and the value returned will be of " +
+        "float type.",
+});
+
+addEntry({
+    name: "maximize",
+    signatures: [
+        "boolean maximize(string expression, boolean simulate)",
+        "boolean maximize(string expression, int max_price, int price_level, boolean simulate)",
+        "record [int] maximize(string expression, int max_price, int price_level, boolean simulate, boolean include_equip)"
+    ],
+    documentation:
+        "Runs the modifier maximizer and returns true if successful, or a record including equipments and effects if the " +
+        "*include_equip* parameter is specified. See wiki page for more details.",
+});
+
+addEntry({
+    name: "meat_drop",
+    signatures: [
+        "int meat_drop(monster m)"
+    ],
+    documentation:
+        "Returns the base meat drop of the specified monster.",
+});
+
+addEntry({
+    name: "meat_drop_modifier",
+    signatures: [
+        "float meat_drop_modifier()"
+    ],
+    documentation:
+        "Returns the percentage that you currently increase or decrease your meat drops as a result of equipment, effects, familiar, and " +
+        "area modifiers.",
+});
+
+addEntry({
+    name: "min",
+    signatures: [
+        "int min(int a, int b)",
+        "float min(float a, float b)"
+    ],
+    documentation:
+        "Mathematical minimum function. Returns the lower of the two parameters. Note that it is possible to mix an int and float type in the " +
+        "parameters, in which case the int parameter will be transparently converted to a float, and the value returned will be of " +
+        "float type.",
+});
+
+addEntry({
+    name: "minstrel_instrument",
+    signatures: [
+        "item minstrel_instrument()"
+    ],
+    documentation:
+        "If you are in the Avatar of Boris challenge path, this will return the item currently equipped on Boris' minstrel, Clancy. " +
+        "Otherwise, this will return *$item[none]*.",
+});
+
+addEntry({
+    name: "minstrel_level",
+    signatures: [
+        "int minstrel_level()"
+    ],
+    documentation:
+        "If you are in the Avatar of Boris challenge path, then this will return the level of Boris' minstrel, Clancy. Otherwise, it " +
+        "will return 0.",
+});
+
+addEntry({
+    name: "minstrel_quest",
+    signatures: [
+        "boolean minstrel_quest()"
+    ],
+    documentation:
+        "Returns true if you are in the Avatar of Boris challenge path and his minstrel, Clanacy, has a new quest available. Returns " +
+        "false otherwise.",
+});
+
+addEntry({
+    name: "modifier_eval",
+    signatures: [
+        "float modifier_eval(string expression)"
+    ],
+    documentation:
+        "Evaluates an expression in the format used by variable modifiers. See wiki page for more details.",
+});
+
+addEntry({
+    name: "monster_attack",
+    signatures: [
+        "int monster_attack()",
+        "int monster_attack(monster check_me)"
+    ],
+    documentation:
+        "Returns the attack value of the specified monster *check_me*. If *check_me* is not specified, it will use the current monster " +
+        "if you are in a fight, or the last monster you encountered otherwise.",
+});
+
+addEntry({
+    name: "monster_defense",
+    signatures: [
+        "int monster_defense()",
+        "int monster_defense(monster check_me)"
+    ],
+    documentation:
+        "Returns the defense value of the specified monster *check_me*. If *check_me* is not specified, it will use the current monster " +
+        "if you are in a fight, or the last monster you encountered otherwise.",
+});
+
+addEntry({
+    name: "monster_element",
+    signatures: [
+        "element monster_element()",
+        "element monster_element(monster check_me)"
+    ],
+    documentation:
+        "Returns the elemental alignment of the specified monster *check_me*. If *check_me* is not specified, it defaults to the last " +
+        "monster you encountered.",
+});
+
+addEntry({
+    name: "monster_eval",
+    signatures: [
+        "float monster_eval(string expression)"
+    ],
+    documentation:
+        "Evaluates an expression in the format used by variable monsters. See wiki page for more details.",
+});
+
+addEntry({
+    name: "monster_hp",
+    signatures: [
+        "int monster_hp()",
+        "int monster_hp(monster check_me)"
+    ],
+    documentation:
+        "Returns the defense value of the specified monster *check_me*. If *check_me* is not specified, it will return the HP of the current " +
+        "monster if you are in a fight, or the HP of the last monster you encountered otherwise."
+});
+
+addEntry({
+    name: "monster_initiative",
+    signatures: [
+        "int monster_initiative()",
+        "int monster_initiative(monster check_me)"
+    ],
+    documentation:
+        "Returns the initiative value of the specified monster *check_me*. If *check_me* is not specified, it will return the initiatve of the current " +
+        "monster if you are in a fight, or the initiative of the last monster you encountered otherwise."
+});
+
+addEntry({
+    name: "monster_level_adjustment",
+    signatures: [
+        "int monster_level_adjustment()"
+    ],
+    documentation:
+        "Returns the cumulative total of all monster level adjustments from equipment, effects, and area modifiers.",
+});
+
+addEntry({
+    name: "monster_phylum",
+    signatures: [
+        "phylum monster_phylum()",
+        "phylum monster_phylum(monster check_me)"
+    ],
+    documentation:
+        "Returns the phylum of the specified monster *check_me*. If *check_me* is not specified, it will return the phylum of the current " +
+        "monster if you are in a fight, or the phylum of the last monster you encountered otherwise."
+});
+
+addEntry({
+    name: "moon_light",
+    signatures: [
+        "int moon_light()"
+    ],
+    documentation:
+        "Returns the total number of lit segments from all moons (including the minimoon). Range returned is 0 to 9.",
+});
+
+addEntry({
+    name: "moon_phase",
+    signatures: [
+        "int moon_phase()"
+    ],
+    documentation:
+        "Returns the moon phase, between 0 and 15. See wiki page for more details.",
+});
+
+addEntry({
+    name: "mp_cost",
+    signatures: [
+        "int mp_cost(skill use_me)"
+    ],
+    documentation:
+        "Returns the current MP cost for the next cast of the given skill with all current MP cost modifiers accounted for.",
+});
+
+addEntry({
+    name: "my_adventures",
+    signatures: [
+        "int my_adventures()"
+    ],
+    documentation:
+        "Returns the character's number of adventures remaining.",
+});
+
+addEntry({
+    name: "my_ascensions",
+    signatures: [
+        "int my_ascensions()"
+    ],
+    documentation:
+        "Returns the number of times your character has ascended.",
+});
+
+addEntry({
+    name: "my_audience",
+    signatures: [
+        "int my_audience()"
+    ],
+    documentation:
+        "If you are in the Avatar of Sneaky Pete challenge path, this will return the current value of your audience.",
+});
+
+addEntry({
+    name: "my_basestat",
+    signatures: [
+        "int my_basestat(stat st)"
+    ],
+    documentation:
+        "Returns the base (unbuffed) value of your character's specified stat. Note that this function also accepts " +
+        "*$stat[submuscle]*, *$stat[submysticality]*, and *$stat[submoxie]* as parameters, in which case it will return the number " +
+        "of substats.",
+});
+
+addEntry({
+    name: "my_bjorned_familiar",
+    signatures: [
+        "familiar my_bjorned_familiar()"
+    ],
+    documentation:
+        "Returns the familiar currently occupying Buddy Bjorn.",
+});
+
+addEntry({
+    name: "my_buffedstat",
+    signatures: [
+        "int my_buffedstat(stat st)"
+    ],
+    documentation:
+        "Returns the current buffed value of your character's specified stat. Passing " +
+        "*$stat[submuscle]*, *$stat[submysticality]*, or *$stat[submoxie]* to this function will always return 0.",
+});
+
+addEntry({
+    name: "my_class",
+    signatures: [
+        "class my_class()"
+    ],
+    documentation:
+        "Returns your character's current class.",
+});
+
+addEntry({
+    name: "my_closet_meat",
+    signatures: [
+        "int my_closet_meat()"
+    ],
+    documentation:
+        "Returns the amount of meat stored in your Colossal Closet.",
+});
+
+addEntry({
+    name: "my_companion",
+    signatures: [
+        "string my_companion()"
+    ],
+    documentation:
+        "If your current path is Avatar of Jarlsberg this returns your current companion. If you have no current companion or you are " +
+        "in that path, then this returns an empty string.",
+});
+
+addEntry({
+    name: "my_daycount",
+    signatures: [
+        "int my_daycount()"
+    ],
+    documentation:
+        "Returns the number of days since your character has started their current ascension.",
+});
+
+addEntry({
+    name: "my_discomomentum",
+    signatures: [
+        "int my_discomomentum()"
+    ],
+    documentation:
+        "Returns your current Disco Momentum level.",
+});
+
+addEntry({
+    name: "my_effective_familiar",
+    signatures: [
+        "familiar my_effective_familiar()"
+    ],
+    documentation:
+        "Returns the identity of your current familiar. If you have a Doppelshifter or a tiny costum wardrobe equipped, then the " +
+        "return value will be the identity that your familiar assumed at the beginning of the current combat.",
+});
+
+addEntry({
+    name: "my_effects",
+    signatures: [
+        "int [effect] my_effects()"
+    ],
+    documentation:
+        "Returns a map of your character's current effects, with the values being their durations.",
+});
+
+addEntry({
+    name: "my_enthroned_familiar",
+    signatures: [
+        "familiar my_enthroned_familiar()"
+    ],
+    documentation:
+        "Returns the familiar currently enthroned (in the Crown of Thrones).",
+});
+
+addEntry({
+    name: "my_familiar",
+    signatures: [
+        "familiar my_familiar()"
+    ],
+    documentation:
+        "Returns your current familiar.",
+});
+
+addEntry({
+    name: "my_fullness",
+    signatures: [
+        "int my_fullness()"
+    ],
+    documentation:
+        "REturns the current fullness of your character.",
+});
+
+addEntry({
+    name: "my_fury",
+    signatures: [
+        "int my_fury()"
+    ],
+    documentation:
+        "Returns your current Fury level.",
+});
+
+addEntry({
+    name: "my_hash",
+    signatures: [
+        "string my_hash()"
+    ],
+    documentation:
+        "Returns the password hash used for your current login session.",
+});
+
+addEntry({
+    name: "my_hp",
+    signatures: [
+        "int my_hp()"
+    ],
+    documentation:
+        "Returns your current HP level.",
+});
+
+addEntry({
+    name: "my_id",
+    signatures: [
+        "string my_id()"
+    ],
+    documentation:
+        "Returns the Character ID of your character.",
+});
+
+addEntry({
+    name: "my_inebriety",
+    signatures: [
+        "int my_inebriety()"
+    ],
+    documentation:
+        "Returns your character's current level of drunkenness",
+});
+
+addEntry({
+    name: "my_level",
+    signatures: [
+        "int my_level()"
+    ],
+    documentation:
+        "Returns your character's level.",
+});
+
+addEntry({
+    name: "my_lightning",
+    signatures: [
+        "int my_lightning()"
+    ],
+    documentation:
+        "Returns your current bolts of Lightning.",
+});
+
+addEntry({
+    name: "my_location",
+    signatures: [
+        "location my_location"
+    ],
+    documentation:
+        "Returns your current location. If you are not in combat, this will typically be the location where you most recently adventured. " +
+        "However, for a betweenBattleScript, it will be the location at which you are **about to** adventure.",
+});
+
+addEntry({
+    name: "my_maxfury",
+    signatures: [
+        "int my_maxfury()"
+    ],
+    documentation:
+        "Returns your maximum Fury level.",
+});
+
+addEntry({
+    name: "my_maxhp",
+    signatures: [
+        "int my_maxhp()"
+    ],
+    documentation:
+        "Returns your maximum HP level.",
+});
+
+addEntry({
+    name: "my_maxmp",
+    signatures: [
+        "int my_maxmp()"
+    ],
+    documentation:
+        "Returns your maximum MP level.",
+});
+
+addEntry({
+    name: "my_meat",
+    signatures: [
+        "int my_meat()"
+    ],
+    documentation:
+        "Returns the amount of meat you currently have in your inventory. Does not include meat you have in your Colossal Closet or " +
+        "Hangk's storage.",
+});
+
+addEntry({
+    name: "my_mp",
+    signatures: [
+        "int my_mp()"
+    ],
+    documentation:
+        "Returns your current MP level.",
+});
+
+addEntry({
+    name: "my_name",
+    signatures: [
+        "string my_name()"
+    ],
+    documentation:
+        "Returns the name of your character **in all lowercase letters**.",
+});
+
+addEntry({
+    name: "my_path",
+    signatures: [
+        "string my_path()"
+    ],
+    documentation:
+        "Returns the name of your current ascension path. Returns \"none\" when in aftercore.",
+});
+
+addEntry({
+    name: "my_primestat",
+    signatures: [
+        "stat my_primestat()"
+    ],
+    documentation:
+        "Returns the stat associated with your class.",
+});
+
+addEntry({
+    name: "my_rain",
+    signatures: [
+        "int my_rain()"
+    ],
+    documentation:
+        "Returns your current drops of Rain.",
+});
+
+addEntry({
+    name: "my_servant",
+    signatures: [
+        "servant my_servant(servant s)"
+    ],
+    documentation:
+        "idk lol. I'm assuming returns current servant in Actually Ed the Undying? Don't know what the parameter is for.",
+});
+
+addEntry({
+    name: "my_sign",
+    signatures: [
+        "string my_sign()"
+    ],
+    documentation:
+        "Returns the moon sign your character chose upon ascension.",
+});
+
+addEntry({
+    name: "my_soulsauce",
+    signatures: [
+        "int my_soulsauce()"
+    ],
+    documentation:
+        "Returns your current Soulsauce.",
+});
+
+addEntry({
+    name: "my_spleen_use",
+    signatures: [
+        "int my_spleen_use()"
+    ],
+    documentation:
+        "Returns the number of spleen hits your character has taken this KoL day.",
+});
+
+addEntry({
+    name: "my_storage_meat",
+    signatures: [
+        "int my_storage_meat()"
+    ],
+    documentation:
+        "Returns the amount of meat stored in Hangk's.",
+});
+
+addEntry({
+    name: "my_thrall",
+    signatures: [
+        "thrall my_thrall()"
+    ],
+    documentation:
+        "Returns your current pasta thrall.",
+});
+
+addEntry({
+    name: "my_thunder",
+    signatures: [
+        "int my_thunder()"
+    ],
+    documentation:
+        "Returns your current dB of Thunder.",
+});
+
+addEntry({
+    name: "my_turncount",
+    signatures: [
+        "int my_turncount()"
+    ],
+    documentation:
+        "Returns the total number of adventures used thus far during your current ascension.",
+});
+
+addEntry({
+    name: "now_to_string",
+    signatures: [
+        "string now_to_string(string format)"
+    ],
+    documentation:
+        "Returns the current time (based on your computer's system settings) in SimpleDate format. See wiki page for more details.",
+});
+
+addEntry({
+    name: "npc_price",
+    signatures: [
+        "int npc_price(item shop_for)"
+    ],
+    documentation:
+        "Returns the current price of the given item from NPC shops, given availability to the player. If it is not available from an " +
+        "NPC store or the store is not available, then it returns 0.",
+});
+
+addEntry({
+    name: "numeric_modifier",
+    signatures: [
+        "float numeric_modifier(string modifier_name)",
+        "float numeric_modifier(string check_me, string modifier_name)",
+        "float numeric_modifier(item check_me, string modifier_name)",
+        "float numeric_modifier(effect check_me, string modifier_name)",
+        "float numeric_modifier(effect check_me, string modifier_name)",
+        "float numeric_modifier(skill check_me, )",
+    ],
+    documentation:
+        "Returns your current modifier total for *modifier_name*, or the amount of modification from *check_me* if it's specified. See " +
+        "wiki page for more details.",
+});
+
+
+addEntry({
+    name: "outfit",
+    signatures: [
+        "boolean outfit(string name)"
+    ],
+    documentation:
+        "Attempts to put on the outfit specified by *name*, and returns true if it does so successfully, and false if it does not. It " +
+        "will return false for any reason that you cannot put on the outfit including insufficient stats, not having the items, or even a " +
+        "server timeout.",
+});
+
+addEntry({
+    name: "outfit_pieces",
+    signatures: [
+        "item [int] outfit_pieces(string outfit)"
+    ],
+    documentation:
+        "Returns a map of the items which compose an outfit. This works for both KoL standard outfits and custom outfits. If *outfit* " +
+        "it invalid, then this wil return an empty aggregate.",
+});
+
+addEntry({
+    name: "outfit_tattoo",
+    signatures: [
+        "string outfit_tattoo(string name)"
+    ],
+    documentation:
+        "Returns image file name of outfit tatoo. If the outfit doesn't exist, it returns an empty string.",
+});
+
+addEntry({
+    name: "overdrink",
+    signatures: [
+        "boolean overdrink(int qty, item consume)"
+    ],
+    documentation:
+        "Attempts to drink *qty* amount of item *consume*. Returns true for drinkable items and false for items that are not. The return value " +
+        "does not reflect whether or not the items were actually consumed. This function differs from *drink()* in that it suppresses warning " +
+        "dialogs for overdrinking and drinking without Ode to Booze.",
+});
+
+addEntry({
+    name: "print",
+    signatures: [
+        "void print(string message)",
+        "void print(string message, string color)"
+    ],
+    documentation:
+        "Prints a message to the CLI, with an optional color.",
+});
+
+addEntry({
+    name: "print_html",
+    signatures: [
+        "void print_html(string html)"
+    ],
+    documentation:
+        "Modified version of *print()* that allows you to format strings as if they were HTML. Font size, tables, font colors, etc. can " +
+        "all be specified.",
+});
+
+addEntry({
+    name: "property_default_value",
+    signatures: [
+        "string property_default_value(string prop)"
+    ],
+    documentation:
+        "idk lol. Returns default value of the specified property, probably.",
+});
+
+addEntry({
+    name: "property_exists",
+    signatures: [
+        "boolean property_exists(string prop)",
+        "boolean property_exists(string prop, boolean global)"
+    ],
+    documentation:
+        "idk lol. Returns boolean indicating whether the specified property exists, probably.",
+});
+
+addEntry({
+    name: "property_has_default",
+    signatures: [
+        "boolean property_has_default(string prop)"
+    ],
+    documentation:
+        "idk lol. Returns boolean indicating whether the specified property has a default value, probably.",
+});
+
+addEntry({
+    name: "pulls_remaining",
+    signatures: [
+        "int pulls_remaining()"
+    ],
+    documentation:
+        "Returns the number of Hangk pulls you have remaining for the day for characters in Ronin, 0 if you are in Hardcore, and -1 " +
+        "otherwise.",
+});
+
+addEntry({
+    name: "put_closet",
+    signatures: [
+        "boolean put_closet(int qty)",
+        "boolean put_closet(int qty, item it)"
+    ],
+    documentation:
+        "Attempts to move *qty* of *it* from your main inventory into your Colossal Closet. The one-parameter version without *it* tries to move meat instead of " +
+        "items. Returns a boolean indicating whether the move was successful.",
+});
+
+addEntry({
+    name: "put_display",
+    signatures: [
+        "boolean put_display(int qty, item it)"
+    ],
+    documentation:
+        "Attempts to move *qty* of *it* from your main inventory to your display case. Returns a boolean indicating whether the move was successful.",
+});
+
+addEntry({
+    name: "put_shop",
+    signatures: [
+        "boolean put_shop(int price, int limit, item it)",
+        "boolean put_shop(int price, int limit, int qty, item it)"
+    ],
+    documentation:
+        "Places items in your mall store. Returns true if placement is successful, and false otherwise. See wiki page for more details.",
+});
+
+addEntry({
+    name: "put_stash",
+    signatures: [
+        "boolean put_stash(int qty, item it)"
+    ],
+    documentation:
+        "Attempts to move *qty* of *it* from your main inventory into your clan stash. Returns a boolean indicating whether the move was successful.",
+});
+
+addEntry({
+    name: "pvp_attacks_left",
+    signatures: [
+        "int pvp_attacks_left()"
+    ],
+    documentation:
+        "Returns the number of PvP fights your character has remaining.",
+});
+
+addEntry({
+    name: "rain_cost",
+    signatures: [
+        "int rain_cost(skill rain_skill)"
+    ],
+    documentation:
+        "REturns the drop cost for the given Rain skill.",
+});
+
+addEntry({
+    name: "random",
+    signatures: [
+        "int random(int range)"
+    ],
+    documentation:
+        "Generates a random number, from a minimum of 0 to a maximum of *range*-1. Note that this function aborts with an error if you " +
+        "supply 1 for *range*.",
+});
+
+addEntry({
+    name: "raw_damage_absorption",
+    signatures: [
+        "int raw_damage_absorption()"
+    ],
+    documentation:
+        "Returns the total damage absorption of your gear and effects.",
+});
+
+addEntry({
+    name: "refresh_shop",
+    signatures: [
+        "void refresh_shop()"
+    ],
+    documentation:
+        "Forces KoLmafia to re-check your mall store. This is useful because it's impossible for KoLmafia to internally track this.",
+});
+
+addEntry({
+    name: "refresh_stash",
+    signatures: [
+        "void refresh_stash()"
+    ],
+    documentation:
+        "Forces KoLmafia to re-check your clan stash. This is useful because it's impossible for KoLmafia to interally track this.",
+});
+
+addEntry({
+    name: "refresh_status",
+    signatures: [
+        "void refresh_status()"
+    ],
+    documentation:
+        "Refreshes your character's status from the character pane. This does not affect the relay browser, only KoLmafia's internal information.",
+});
+
+addEntry({
+    name: "remove_item_condition",
+    signatures: [
+        "void remove_item_condition(int qty, item want)"
+    ],
+    documentation:
+        "Removes *qty* of *want* from your current adventuring conditions.",
+});
+
+addEntry({
+    name: "remove_property",
+    signatures: [
+        "void remove_property(string prop)",
+        "void remove_property(string prop, boolean global)"
+    ],
+    documentation:
+        "Removes a KoLmafia property. If *prop* is a built-in property, it gets reset to default instead.",
+});
+
+addEntry({
+    name: "rename_property",
+    signatures: [
+        "boolean rename_property(string prop, string new_name)"
+    ],
+    documentation:
+        "idk lol. Attempts to rename a KoLmafia property to something new, probably.",
+});
+
+addEntry({
+    name: "replace",
+    signatures: [
+        "buffer replace(buffer original, int index1, int index2, string new)"
+    ],
+    documentation:
+        "Replaces every character in *original* between indices *index1* and *index2* with *new* and returns the result. ",
+});
+
+addEntry({
+    name: "replace_all",
+    signatures: [
+        "string replace_all(matcher pattern, string replacement)"
+    ],
+    documentation:
+        "This function first resets the matcher *pattern*. It then scans the input sequence looking for matches of the pattern. Characters "  +
+        "that are not part of any match are appended directly to the result string with each match replaced by the *replacement* string.",
+});
+
+addEntry({
+    name: "replace_first",
+    signatures: [
+        "string replace_first(matcher pattern, string replacement)"
+    ],
+    documentation:
+        "This function first resets the matcher *pattern*. It then scans the input sequence looking for a match of the pattern. Characters that " +
+        "are not part of any match are appended directly to the result string with the first match replaced by the *replacement* string.",
+});
+
+addEntry({
+    name: "replace_string",
+    signatures: [
+        "buffer replace_string(buffer original, string find, string replace)",
+        "buffer replace_string(string original, string find, string replace)"
+    ],
+    documentation:
+        "Searches through the supplied *original* text, replacing every instance of *find* with *replace*, and returns the result.",
+});
+
+addEntry({
+    name: "reset",
+    signatures: [
+        "matcher reset(matcher pattern)",
+        "matcher reset(matcher pattern, string input)"
+    ],
+    documentation:
+        "Resets the matcher to search from beginning of string. If there is an *input* parameter, then that parameter is " +
+        "the new string to search, otherwise it uses the original input string.",
+});
+
+addEntry({
+    name: "restore_hp",
+    signatures: [
+        "boolean restore_hp(int target)"
+    ],
+    documentation:
+       "Attempts to restore your HP to at least *target* using your current recovery settings (or KoLmafia's recovery settings as a fallback). " +
+       "See wiki page for more details."
+});
+
+addEntry({
+    name: "restore_mp",
+    signatures: [
+        "boolean restore_mp(int target)"
+    ],
+    documentation:
+        "Attempts to restore your MP to at least *target* using your current recovery settings (or KoLmafia's recovery settings as a fallback). " +
+        "See wiki page for more details."
+});
+
+addEntry({
+    name: "retrieve_item",
+    signatures: [
+        "boolean retrieve_item(int qty, item get)"
+    ],
+    documentation:
+        "Uses KoLmafia's internal logic to gather items in the least destructive manner. Returns true if the items are acquired as " +
+        "specified, and false otherwise.",
+});
+
+addEntry({
+    name: "round",
+    signatures: [
+        "int round(float number)"
+    ],
+    documentation:
+        "Mathematical rounding function. Returns *number* rounded to the nearest whole number.",
+});
+
+addEntry({
+    name: "run_choice",
+    signatures: [
+        "buffer run_choice(int choice)"
+    ],
+    documentation:
+        "Proceeds to run a choice, selecting the provided choice number. Returns the HTML from the choice page. Most commonly used " +
+        "to finish up choices started via *visit_url()*. See wiki page for more details.",
+});
+
+addEntry({
+    name: "run_combat",
+    signatures: [
+        "buffer run_combat()",
+        "buffer run_combat(string filter)"
+    ],
+    documentation:
+        "Proceeds to run a combat using your current KoLmafia settings. Can optionally provide *filter*, which is a macro " +
+        "or the name of a combat filter function. Returns the HTML from the final round of combat. See wiki page for more details.",
+});
+
+addEntry({
+    name: "run_turn",
+    signatures: [
+        "buffer run_turn()"
+    ],
+    documentation:
+        "Will work as *run_combat()* or *run_choice(-1)* depending on whether you are in a combat or a choice. Returns the HTML from the page " +
+        "after the action completes.",
+});
+
+addEntry({
+    name: "runaway",
+    signatures: [
+        "buffer runaway()"
+    ],
+    documentation:
+        "Attempts to run away from combat during a consult script, and returns the HTML response text from said attempt.",
+});
+
+addEntry({
+    name: "sell",
+    signatures: [
+        "boolean sell(coinmaster master, int qty, item it)"
+    ],
+    documentation:
+        "Attempts to purchase *qty* amount of item *it* from *master*. Returns boolean indicating whether the purchase succeeded.",
+});
+
+addEntry({
+    name: "sell_price",
+    signatures: [
+        "int sell_price(coinmaster master, item it)"
+    ],
+    documentation:
+        "Returns the number of tokens that *master* will charge you if you want him to sell *it* to you.",
+});
+
+addEntry({
+    name: "sells_item",
+    signatures: [
+        "boolean sells_item(coinmaster master, item it)"
+    ],
+    documentation:
+        "Returns boolean indicating whether *master* sells *it*.",
+});
+
+addEntry({
+    name: "session_logs",
+    signatures: [
+        "string [int] session_logs(int days)",
+        "string [int] session_logs(string name, int days)"
+    ],
+    documentation:
+        "Returns a map of your session log info, keyed by days from today. Will include as many days as supplied by *days*, using " +
+        "the logs of the character specified by *name*.",
+});
+
+addEntry({
+    name: "set_auto_attack",
+    signatures: [
+        "void set_auto_attack(int setting)",
+        "void set_auto_attack(string setting)"
+    ],
+    documentation:
+        "Sets your auto-attack to the specified *setting*.",
+});
+
+addEntry({
+    name: "set_length",
+    signatures: [
+        "void set_length(buffer original, int length)"
+    ],
+    documentation:
+        "Changes the size of the buffer. Primarily used to truncate the buffer. If the new length is longer than the old length, the " +
+        "buffer will be padded with null characters. (Those characters can cause trouble, so this function is recommended to be used " +
+        "only for truncating).",
+});
+
+addEntry({
+    name: "set_location",
+    signatures: [
+        "void set_location(location place)"
+    ],
+    documentation:
+        "Changes the value returned by *my_location()* to *place*. This is useful because it allows scripts which check current adventuring location " +
+        "to provide results based on the location that you are *about to* adventure at.",
+});
+
+addEntry({
+    name: "set_property",
+    signatures: [
+        "void set_property(string prop, string value)"
+    ],
+    documentation:
+        "Looks for a global or appropriate user preference from the saved files (found in your 'Settings' directory) and if it finds one that " +
+        "matches, it overrides its value with *value*. If no match is found, it will create a new property with the name and value.",
+});
+
+addEntry({
+    name: "shop_amount",
+    signatures: [
+        "int shop_amount(item it)"
+    ],
+    documentation:
+        "Returns the amount of the given item that is currently for sale in your mall store.",
+});
+
+addEntry({
+    name: "shop_price",
+    signatures: [
+        "int shop_price(item it)"
+    ],
+    documentation:
+        "Returns the price of the given item that is currently for sale in your mall store. If the item is not currently for sale " +
+        "then 999999999 is returned.",
+});
+
+addEntry({
+    name: "soulsauce_cost",
+    signatures: [
+        "int soulsauce_cost(skill use_me)"
+    ],
+    documentation:
+        "Returns the amount of Soulsauce needed for the next cast of the given skill.",
+});
+
+addEntry({
+    name: "spleen_limit",
+    signatures: [
+        "int spleen_limit()"
+    ],
+    documentation:
+        "Returns the maximum spleen use possible for your character.",
+});
+
+addEntry({
+    name: "split_string",
+    signatures: [
+        "string [int] split_string(string source)",
+        "string [int] split_string(string source, string delimiter)"
+    ],
+    documentation:
+        "Returns a map of your *source*, split by either *delimiter* or by line-breaks if not supplied.",
+});
+
+addEntry({
+    name: "square_root",
+    signatures: [
+        "float square_root(float number)"
+    ],
+    documentation:
+        "Returns the square root of the specified *number*. If an int type is supplied as an argument, it will be converted to a float.",
+});
+
+addEntry({
+    name: "start",
+    signatures: [
+        "int start(matcher pattern)",
+        "int start(matcher pattern, int group)"
+    ],
+    documentation:
+        "Returns the starting index of the first character matched by the specified capturing group, or if no *group* is specified, it " +
+        "returns the index of the last group found. If the match was successful, but the group did not match anything, then it returns -1.",
+});
+
+addEntry({
+    name: "stash_amount",
+    signatures: [
+        "int stash_amount(item it)"
+    ],
+    documentation:
+        "Returns the amount of the given item that are in your clan stash.",
+});
+
+addEntry({
+    name: "stat_bonus_today",
+    signatures: [
+        "stat stat_bonus_today()"
+    ],
+    documentation:
+        "Returns the stat that is benefited by the moon phases today. If it is an ordinary day with no stat benefits, the return " +
+        "value is *$stat[none]*.",
+});
+
+addEntry({
+    name: "stat_bonus_tomorrow",
+    signatures: [
+        "stat stat_bonus_tomorrow()"
+    ],
+    documentation:
+        "Returns the stat that will benefit from the moon phases tomorrow. If it will be an ordinary day with no stat benefits, the " +
+        "return value is *$stat[none]*.",
+});
+
+addEntry({
+    name: "stat_modifier",
+    signatures: [
+        "stat stat_modifier(item check_me, string modifier_name)",
+        "stat stat_modifier(string check_me, string modifier_name)"
+    ],
+    documentation:
+        "Returns a stat of *check_me* is stat specific.",
+});
+
+addEntry({
+    name: "steal",
+    signatures: [
+        "buffer steal()"
+    ],
+    documentation:
+        "Attempts to pickpocket during a consult script, and returns the HTML response text from said attempt.",
+});
+
+addEntry({
+    name: "stills_available",
+    signatures: [
+        "int stills_available()"
+    ],
+    documentation:
+        "Returns the number of Nash Crosby's Still uses you have left for the day. This is 0 if you are not a moxie class. If you are a " +
+        "moxie class, but have not opened the guild, this returns 10.",
+});
+
+addEntry({
+    name: "storage_amount",
+    signatures: [
+        "int storage_amount(item it)"
+    ],
+    documentation:
+        "Returns the amount of the given item that you have in storage at Hangk's.",
+});
+
+addEntry({
+    name: "string_modifier",
+    signatures: [
+        "string string_modifier(string check_me)",
+        "string string_modifier(string check_me, string modifier_name)"
+    ],
+    documentation:
+        "Returns a string modifier. See wiki page for more details.",
+});
+
+addEntry({
+    name: "stun_skill",
+    signatures: [
+        "skill stun_skill()"
+    ],
+    documentation:
+        "Returns the skill the character class could use for stunning.",
+});
+
+addEntry({
+    name: "substring",
+    signatures: [
+        "string substring(string full, int start)",
+        "string substring(string full, int start, int end)"
+    ],
+    documentation:
+        "This function returns a postion of *full*, starting at index *start*, and ending just before index *end*. If *end* is omitted, the remaining " +
+        "of the string is returned.",
+});
+
+addEntry({
+    name: "svn_at_head",
+    signatures: [
+        "boolean svn_at_head(string projectname)"
+    ],
+    documentation:
+        "Returns true if *projectname* exists, is a valid working copy, and is currently at the same revision number as the repository. " +
+        "Returns false otherwise. *projectname* will match any unique substring of any project in the /svn folder, but it is case-sensitive.",
+});
+
+addEntry({
+    name: "svn_exists",
+    signatures: [
+        "boolean svn_exists(string projectname)"
+    ],
+    documentation:
+        "Returns true if there is a valid working copy named *projectname* present in the /svn folder. *projectname* will match any " +
+        "unique substring of any project in the /svn folder, but it is case-sensitive.",
+});
+
+addEntry({
+    name: "svn_info",
+    signatures: [
+        "record svn_info(string projectname)"
+    ],
+    documentation:
+        "Provides information about a given project. See wiki page for more details.",
+});
+
+/*
 addEntry({
     name: "",
     signatures: [
@@ -1561,453 +3253,4 @@ addEntry({
     documentation:
         "",
 });
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
-
-addEntry({
-    name: "",
-    signatures: [
-
-    ],
-    documentation:
-        "",
-});
+*/
