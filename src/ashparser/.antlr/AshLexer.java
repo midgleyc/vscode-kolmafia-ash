@@ -1,4 +1,4 @@
-// Generated from c:\Users\danie\Desktop\kolmafia-ash++\kolmafia-ash-pp\src\ashparser/AshLexer.g4 by ANTLR 4.7.1
+// Generated from c:\Users\danie\Desktop\vscode-kolmafia-ash\src\ashparser/AshLexer.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
