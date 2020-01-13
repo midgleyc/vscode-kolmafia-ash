@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.4.0] - 2020-01-12
+
+- Fix parsing issues for top-level field declarations
+
 ## [0.3.0] - 2020-01-12
 
 - Added tooltip hover support for all remaining ASH functions
