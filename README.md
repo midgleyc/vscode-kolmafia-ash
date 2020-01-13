@@ -7,11 +7,21 @@ Forked from [https://github.com/benblank/kolmafia-ash](https://github.com/benbla
 
 ## Features
 
-* Syntax Highlighting
-* Hover tooltips for ASH functions
-* Autosuggest & completion for ASH functions
-* Symbol Definitions
-* More to come...maybe...
+* **Syntax Highlighting**
+
+    ![Syntax Highlighting](images/syntax-highlighting.png)
+
+* **Autosuggest & completion for ASH functions**
+
+    ![Autosuggest & completion](images/autosuggest_completion_feature_example.gif)
+
+* **Hover tooltips for ASH functions**
+
+    ![Hover Tooltip](images/hover_tooltip_feature_example.gif)
+
+* **Symbol Definitions**
+
+    ![Symbol definition](images/symbol_definition_feature_example.gif)
 
 ## Known Issues/Limitations
 
