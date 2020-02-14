@@ -25,6 +25,11 @@ Forked from [https://github.com/benblank/kolmafia-ash](https://github.com/benbla
 
 ## Known Issues/Limitations
 
+* Parser fails for block statements that aren't surrounded by curly braces {}
+  (e.g. `if (foo) doThis();`). This will cause symbol definition to fail.
+* Parser fails for array declarations. This will cause symbol definition to fail.
+
+
 ## Changelog
 
 See [CHANGELOG](CHANGELOG.md) for more information.

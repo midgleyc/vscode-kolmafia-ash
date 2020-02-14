@@ -62,6 +62,7 @@
 		"generate-parser": "antlr4ts -visitor -o src/ashparser src/ashparser/AshLexer.g4 src/ashparser/AshParser.g4",
 		"vscode:prepublish": "npm run compile",
 		"compile": "npm run generate-syntax && npm run generate-parser && webpack --mode production",
+		"compile-dev": "npm run generate-parser && webpack --mode development",
 		"watch": "node watch-yml & tsc -watch -p ./",
 		"webpack-dev": "webpack --mode development --watch",
 		"pretest": "npm run compile",

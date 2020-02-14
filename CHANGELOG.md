@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.4.3]
+
+- Fix parsing string literals that use singlequotes
+- TODO Fix parsing aggregate literals
+
 ## [0.4.0] - 2020-01-12
 
 - Fix parsing issues for top-level field declarations
