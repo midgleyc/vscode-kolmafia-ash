@@ -26,7 +26,7 @@ scriptDeclaration:
 	// TODO Syntax with < SCRIPTPATH >
 
 sinceDeclaration:
-	SINCE IDENTIFIER (';')?;
+	SINCE (IDENTIFIER | FLOAT_LITERAL) (';')?;
 
 functionDeclaration:
 	typeTypeOrVoid IDENTIFIER formalParameters (functionBody | ';');
@@ -117,11 +117,10 @@ ashAggregateLiteral:
 
 elementValuePairs: elementValuePair (',' elementValuePair)*;
 
-elementValuePair: IDENTIFIER '=' elementValue;
+elementValuePair: typeType IDENTIFIER '=' elementValue;
 
 elementValue:
-	expression
-	| elementValueArrayInitializer;
+	primary | elementValueArrayInitializer;
 
 elementValueArrayInitializer:
 	'{' (elementValue (',' elementValue)*)? (',')? '}';
@@ -133,7 +132,9 @@ defaultValue: DEFAULT elementValue;
 block: '{' blockStatement* '}';
 
 variableDeclaration:
-	typeType variableDeclarator;
+	(typeType variableDeclarator)
+	| (mapType IDENTIFIER ('=' (ashAggregateLiteral | elementValueArrayInitializer))?)
+	| (arrayType IDENTIFIER ('=' elementValueArrayInitializer)?);
 
 blockStatement:
 	variableDeclaration ';' | statement;
@@ -243,7 +244,7 @@ primary:
 typeList: typeType (',' typeType)*;
 
 typeType:
-	(mapType | primitiveType | ashType);
+	(mapType | primitiveType | ashType | arrayType);
 
 primitiveType:
 	BOOLEAN
@@ -256,6 +257,9 @@ mapType:
 
 mapTypeKeys:
 	(primitiveType | ashType) (',' (primitiveType | ashType))*;
+
+arrayType:
+	(IDENTIFIER | primitiveType | ashType) '[' DECIMAL_LITERAL ']';
 
 ashType:
 	ASH_BOUNTY_TYPE

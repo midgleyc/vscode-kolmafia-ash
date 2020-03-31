@@ -4,6 +4,7 @@
 
 - Fixed parsing string literals that use singlequotes
 - Fixed parsing aggregate literals
+- Support parsing arrays
 
 ## [0.4.0] - 2020-01-12
 

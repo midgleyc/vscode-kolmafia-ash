@@ -55,6 +55,7 @@ import { TypeTypeContext } from "./AshParser";
 import { PrimitiveTypeContext } from "./AshParser";
 import { MapTypeContext } from "./AshParser";
 import { MapTypeKeysContext } from "./AshParser";
+import { ArrayTypeContext } from "./AshParser";
 import { AshTypeContext } from "./AshParser";
 import { ArgumentsContext } from "./AshParser";
 
@@ -635,6 +636,17 @@ export interface AshParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitMapTypeKeys?: (ctx: MapTypeKeysContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AshParser.arrayType`.
+	 * @param ctx the parse tree
+	 */
+	enterArrayType?: (ctx: ArrayTypeContext) => void;
+	/**
+	 * Exit a parse tree produced by `AshParser.arrayType`.
+	 * @param ctx the parse tree
+	 */
+	exitArrayType?: (ctx: ArrayTypeContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `AshParser.ashType`.

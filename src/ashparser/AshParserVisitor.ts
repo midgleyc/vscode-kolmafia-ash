@@ -55,6 +55,7 @@ import { TypeTypeContext } from "./AshParser";
 import { PrimitiveTypeContext } from "./AshParser";
 import { MapTypeContext } from "./AshParser";
 import { MapTypeKeysContext } from "./AshParser";
+import { ArrayTypeContext } from "./AshParser";
 import { AshTypeContext } from "./AshParser";
 import { ArgumentsContext } from "./AshParser";
 
@@ -430,6 +431,13 @@ export interface AshParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitMapTypeKeys?: (ctx: MapTypeKeysContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AshParser.arrayType`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitArrayType?: (ctx: ArrayTypeContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `AshParser.ashType`.
