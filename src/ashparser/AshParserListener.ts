@@ -21,17 +21,20 @@ import { FormalParametersContext } from "./AshParser";
 import { FormalParameterListContext } from "./AshParser";
 import { FormalParameterContext } from "./AshParser";
 import { LiteralContext } from "./AshParser";
+import { NonAggregateLiteralContext } from "./AshParser";
 import { IntegerLiteralContext } from "./AshParser";
 import { FloatLiteralContext } from "./AshParser";
 import { AshLiteralContext } from "./AshParser";
+import { AshAggregateLiteralItemContext } from "./AshParser";
+import { AshAggregateLiteralContext } from "./AshParser";
 import { ElementValuePairsContext } from "./AshParser";
 import { ElementValuePairContext } from "./AshParser";
 import { ElementValueContext } from "./AshParser";
 import { ElementValueArrayInitializerContext } from "./AshParser";
 import { DefaultValueContext } from "./AshParser";
 import { BlockContext } from "./AshParser";
-import { BlockStatementContext } from "./AshParser";
 import { VariableDeclarationContext } from "./AshParser";
+import { BlockStatementContext } from "./AshParser";
 import { StatementContext } from "./AshParser";
 import { CatchClauseContext } from "./AshParser";
 import { CatchTypeContext } from "./AshParser";
@@ -260,6 +263,17 @@ export interface AshParserListener extends ParseTreeListener {
 	exitLiteral?: (ctx: LiteralContext) => void;
 
 	/**
+	 * Enter a parse tree produced by `AshParser.nonAggregateLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterNonAggregateLiteral?: (ctx: NonAggregateLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by `AshParser.nonAggregateLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitNonAggregateLiteral?: (ctx: NonAggregateLiteralContext) => void;
+
+	/**
 	 * Enter a parse tree produced by `AshParser.integerLiteral`.
 	 * @param ctx the parse tree
 	 */
@@ -291,6 +305,28 @@ export interface AshParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitAshLiteral?: (ctx: AshLiteralContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AshParser.ashAggregateLiteralItem`.
+	 * @param ctx the parse tree
+	 */
+	enterAshAggregateLiteralItem?: (ctx: AshAggregateLiteralItemContext) => void;
+	/**
+	 * Exit a parse tree produced by `AshParser.ashAggregateLiteralItem`.
+	 * @param ctx the parse tree
+	 */
+	exitAshAggregateLiteralItem?: (ctx: AshAggregateLiteralItemContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AshParser.ashAggregateLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterAshAggregateLiteral?: (ctx: AshAggregateLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by `AshParser.ashAggregateLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitAshAggregateLiteral?: (ctx: AshAggregateLiteralContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `AshParser.elementValuePairs`.
@@ -359,17 +395,6 @@ export interface AshParserListener extends ParseTreeListener {
 	exitBlock?: (ctx: BlockContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `AshParser.blockStatement`.
-	 * @param ctx the parse tree
-	 */
-	enterBlockStatement?: (ctx: BlockStatementContext) => void;
-	/**
-	 * Exit a parse tree produced by `AshParser.blockStatement`.
-	 * @param ctx the parse tree
-	 */
-	exitBlockStatement?: (ctx: BlockStatementContext) => void;
-
-	/**
 	 * Enter a parse tree produced by `AshParser.variableDeclaration`.
 	 * @param ctx the parse tree
 	 */
@@ -379,6 +404,17 @@ export interface AshParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitVariableDeclaration?: (ctx: VariableDeclarationContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AshParser.blockStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterBlockStatement?: (ctx: BlockStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `AshParser.blockStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitBlockStatement?: (ctx: BlockStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `AshParser.statement`.

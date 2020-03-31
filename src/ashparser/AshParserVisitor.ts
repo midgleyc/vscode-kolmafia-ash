@@ -21,17 +21,20 @@ import { FormalParametersContext } from "./AshParser";
 import { FormalParameterListContext } from "./AshParser";
 import { FormalParameterContext } from "./AshParser";
 import { LiteralContext } from "./AshParser";
+import { NonAggregateLiteralContext } from "./AshParser";
 import { IntegerLiteralContext } from "./AshParser";
 import { FloatLiteralContext } from "./AshParser";
 import { AshLiteralContext } from "./AshParser";
+import { AshAggregateLiteralItemContext } from "./AshParser";
+import { AshAggregateLiteralContext } from "./AshParser";
 import { ElementValuePairsContext } from "./AshParser";
 import { ElementValuePairContext } from "./AshParser";
 import { ElementValueContext } from "./AshParser";
 import { ElementValueArrayInitializerContext } from "./AshParser";
 import { DefaultValueContext } from "./AshParser";
 import { BlockContext } from "./AshParser";
-import { BlockStatementContext } from "./AshParser";
 import { VariableDeclarationContext } from "./AshParser";
+import { BlockStatementContext } from "./AshParser";
 import { StatementContext } from "./AshParser";
 import { CatchClauseContext } from "./AshParser";
 import { CatchTypeContext } from "./AshParser";
@@ -191,6 +194,13 @@ export interface AshParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitLiteral?: (ctx: LiteralContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by `AshParser.nonAggregateLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitNonAggregateLiteral?: (ctx: NonAggregateLiteralContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by `AshParser.integerLiteral`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -210,6 +220,20 @@ export interface AshParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitAshLiteral?: (ctx: AshLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AshParser.ashAggregateLiteralItem`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAshAggregateLiteralItem?: (ctx: AshAggregateLiteralItemContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AshParser.ashAggregateLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAshAggregateLiteral?: (ctx: AshAggregateLiteralContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `AshParser.elementValuePairs`.
@@ -254,18 +278,18 @@ export interface AshParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitBlock?: (ctx: BlockContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `AshParser.blockStatement`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitBlockStatement?: (ctx: BlockStatementContext) => Result;
-
-	/**
 	 * Visit a parse tree produced by `AshParser.variableDeclaration`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitVariableDeclaration?: (ctx: VariableDeclarationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AshParser.blockStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitBlockStatement?: (ctx: BlockStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `AshParser.statement`.

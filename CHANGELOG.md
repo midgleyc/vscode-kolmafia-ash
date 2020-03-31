@@ -2,12 +2,12 @@
 
 ## [0.4.3]
 
-- Fix parsing string literals that use singlequotes
-- TODO Fix parsing aggregate literals
+- Fixed parsing string literals that use singlequotes
+- Fixed parsing aggregate literals
 
 ## [0.4.0] - 2020-01-12
 
-- Fix parsing issues for top-level field declarations
+- Fixed parsing issues for top-level field declarations
 
 ## [0.3.0] - 2020-01-12
 

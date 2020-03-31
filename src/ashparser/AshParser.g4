@@ -57,6 +57,9 @@ formalParameter:
 	typeType IDENTIFIER;
 
 literal:
+	nonAggregateLiteral | ashAggregateLiteral;
+
+nonAggregateLiteral:
 	integerLiteral
 	| floatLiteral
 	| STRING_LITERAL
@@ -101,7 +104,14 @@ ashLiteral:
 	| ASH_STAT_LITERAL
 	| ASH_STATS_LITERAL
 	| ASH_STRINGS_LITERAL
-	| ASH_THRALL_LITERAL;
+	| ASH_THRALL_LITERAL
+	| ashAggregateLiteral;
+
+ashAggregateLiteralItem:
+	(IDENTIFIER | nonAggregateLiteral) ':' (IDENTIFIER | nonAggregateLiteral);
+
+ashAggregateLiteral:
+	'{' (ashAggregateLiteralItem (',' ashAggregateLiteralItem)*)? '}';
 
 // ANNOTATIONS
 
@@ -122,11 +132,11 @@ defaultValue: DEFAULT elementValue;
 
 block: '{' blockStatement* '}';
 
-blockStatement:
-	variableDeclaration ';' | statement;
-
 variableDeclaration:
 	typeType variableDeclarator;
+
+blockStatement:
+	variableDeclaration ';' | statement;
 
 statement:
 	blockLabel = block
