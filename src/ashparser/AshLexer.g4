@@ -166,6 +166,7 @@ LINE_COMMENT_SLASH: '//' ~[\r\n]* -> channel(HIDDEN);
 LINE_COMMENT_POUND: '#' ~[\r\n]* -> channel(HIDDEN);
 
 // Identifiers
+// This rule must be last because it is typically the most generic
 
 IDENTIFIER: Letter LetterOrDigit*;
 

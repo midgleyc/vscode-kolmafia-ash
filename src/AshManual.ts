@@ -1760,7 +1760,7 @@ addEntry({
         "int item_amount(item it)"
     ],
     documentation:
-        "Returns the amount oa n item you currently have in your inventory. Does **not** include equipped items, items in your Colossal " +
+        "Returns the amount of an item you currently have in your inventory. Does **not** include equipped items, items in your Colossal " +
         "Closet, or Hangk's Storage.",
 });
 
