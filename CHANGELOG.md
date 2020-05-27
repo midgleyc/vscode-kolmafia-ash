@@ -1,7 +1,8 @@
 # Change Log
 
-## [0.4.3]
+## [0.5.0] - 2020-05-27
 
+- Improved syntax definition (by phulin/ikzann)
 - Fixed parsing string literals that use singlequotes
 - Fixed parsing aggregate literals
 - Support parsing arrays
