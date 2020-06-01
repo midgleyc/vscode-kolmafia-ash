@@ -25,8 +25,12 @@ Forked from [https://github.com/benblank/kolmafia-ash](https://github.com/benbla
 
 ## Known Issues/Limitations
 
-* Parser fails for method calls on integers (123.to_skill()). This can cause
-  symbol definition to fail
+* The symbol parser is currently quite brittle, and there are many things that can cause it to break (this only affects the symbol definition
+  feature). These include:
+    * Method calls on integers (e.g. `123.to_skill()`)
+    * Function body without brackets around it
+    * ASH record data structures
+    * Template strings
 
 ## Changelog
 
