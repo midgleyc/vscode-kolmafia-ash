@@ -1,5 +1,5 @@
 # Copyright (c) 2014 GitHub Inc.
-# 
+#
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
 # "Software"), to deal in the Software without restriction, including
@@ -7,10 +7,10 @@
 # distribute, sublicense, and/or sell copies of the Software, and to
 # permit persons to whom the Software is furnished to do so, subject to
 # the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be
 # included in all copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 # EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -18,13 +18,13 @@
 # LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-# 
+#
 # --------------------------------------------------------------------
-# 
+#
 # This package was derived from a TextMate bundle located at
 # https://github.com/textmate/java.tmbundle and distributed under the following
 # license:
-# 
+#
 # Permission to copy, use, modify, sell and distribute this
 # software is granted. This software is provided "as is" without
 # express or implied warranty, and with no claim as to its
@@ -162,54 +162,10 @@ repository:
           - match: ':'
             name: keyword.operator.assert.expression-separator.java
           - include: '#code'
-  class:
-    begin: '(?=\w?[\w\s]*\b(?:class|(?<!@)interface|enum)\s+[\w$]+)'
-    end: '}'
-    endCaptures:
-      '0':
-        name: punctuation.section.class.end.bracket.curly.java
-    name: meta.class.java
-    patterns:
-      - include: '#storage-modifiers'
-      - include: '#comments'
-      - captures:
-          '1':
-            name: storage.modifier.java
-          '2':
-            name: entity.name.type.class.java
-        match: '(class|(?<!@)interface|enum)\s+([\w$]+)'
-        name: meta.class.identifier.java
-      - begin: extends
-        beginCaptures:
-          '0':
-            name: storage.modifier.extends.java
-        end: '(?={|implements)'
-        name: meta.definition.class.inherited.classes.java
-        patterns:
-          - include: '#object-types-inherited'
-          - include: '#comments'
-      - begin: (implements)\s
-        beginCaptures:
-          '1':
-            name: storage.modifier.implements.java
-        end: '(?=\s*extends|\{)'
-        name: meta.definition.class.implemented.interfaces.java
-        patterns:
-          - include: '#object-types-inherited'
-          - include: '#comments'
-      - begin: '{'
-        beginCaptures:
-          '0':
-            name: punctuation.section.class.begin.bracket.curly.java
-        end: '(?=})'
-        contentName: meta.class.body.java
-        patterns:
-          - include: '#class-body'
   class-body:
     patterns:
       - include: '#comments-javadoc'
       - include: '#comments'
-      - include: '#class'
       - include: '#static-initializer'
       - include: '#class-fields-and-methods'
       - include: '#annotations'
@@ -227,7 +183,6 @@ repository:
     patterns:
       - include: '#annotations'
       - include: '#comments'
-      - include: '#class'
       - include: '#record'
       - include: '#anonymous-block-and-instance-initializer'
       - include: '#try-catch-finally'
