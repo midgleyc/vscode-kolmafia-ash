@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.5.1] -
+
+- 'contains' is now highlighted as a keyword
+- Support syntax highlighting for plural typed constants ($items[foo, bar])
+
 ## [0.5.0] - 2020-05-27
 
 - Improved syntax definition (by phulin/ikzann)

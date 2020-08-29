@@ -190,6 +190,7 @@ repository:
       - include: '#parens'
       - include: '#constants-and-special-vars'
       - include: '#enumerated-constants'
+      - include: '#enumerated-plural-constants'
       - include: '#numbers'
       - include: '#anonymous-classes-and-new'
       - include: '#lambda-expression'
@@ -291,8 +292,10 @@ repository:
         name: variable.language.this.java
       - match: \bsuper\b
         name: variable.language.java
+
+  # ASH singular datatypes like $item[]
   enumerated-constants:
-    begin: \$(string|buffer|bounty|classe?|coinmaster|effect|element|familiar|item|location|monster|phylum|skill|slot|stat|thrall|matcher)s?\s*\[
+    begin: \$(string|buffer|bounty|classe?|coinmaster|effect|element|familiar|item|location|monster|phylum|skill|slot|stat|thrall|matcher)\s*\[
     beginCaptures:
       '1':
         name: storage.type.ash
@@ -302,6 +305,23 @@ repository:
     patterns:
       - match: '&[a-z]+;'
         name: constant.character.escape.ash
+
+  # ASH plural datatypes like $items[]
+  enumerated-plural-constants:
+    begin: \$(strings|buffers|classes|coinmasters|effects|elements|familiars|items|locations|monsters|phylums|skills|slots|stats|thralls|matchers)\s*\[
+    beginCaptures:
+      '1':
+        name: storage.type.ash
+    end: (?<!\\)\]
+    name: constant.character.ash
+    contentName: string.quoted.ash
+    patterns:
+      - match: '&[a-z]+;'
+        name: constant.character.escape.ash
+      - include: '#comments'
+      # This one might not be needed...since these should just have strings inside them
+      - include: '#enumerated-constants'
+
   function-call:
     begin: '([A-Za-z_$][\w$]*)\s*(\()'
     beginCaptures:
@@ -325,6 +345,8 @@ repository:
       - match: >-
           \b(import|return|break|case|continue|default|do|while|for|switch|if|else|repeat|until|foreach|exit|sort|by|in)\b
         name: keyword.control.java
+      - match: \b(contains)\b
+        name: keyword.operator.contains.ash
       - match: \b(instanceof)\b
         name: keyword.operator.instanceof.java
       - match: (<<|>>>?|~|\^)
