@@ -18,7 +18,6 @@
           "name": "punctuation.terminator.java"
         }
       },
-      "name": "keyword.control.java",
       "patterns": [
         {
           "include": "#string-import"

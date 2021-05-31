@@ -49,7 +49,6 @@ patterns:
     endCaptures:
       '1':
         name: punctuation.terminator.java
-    name: keyword.control.java  # Shouldn't need this line, but we do.
     patterns:
       - include: '#string-import'
       - include: '#strings'
